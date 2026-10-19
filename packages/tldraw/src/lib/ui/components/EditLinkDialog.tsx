@@ -65,8 +65,11 @@ export const EditLinkDialogInner = track(function EditLinkDialogInner({
 		return { actual: safe, safe, valid: true }
 	})
 
+	const [showInvalid, setShowInvalid] = useState(false)
+
 	const handleChange = useCallback((rawValue: string) => {
 		setUrlInputState(getUrlInputState(rawValue))
+		setShowInvalid(false)
 	}, [])
 
 	const handleClear = useCallback(() => {
@@ -86,7 +89,11 @@ export const EditLinkDialogInner = track(function EditLinkDialogInner({
 		assertShapeWithLink(onlySelectedShape)
 
 		// Enter reaches here even while the save button is disabled.
-		if (!urlInputState.valid) return
+		if (!urlInputState.valid) {
+			setShowInvalid(true)
+			rInput.current?.focus()
+			return
+		}
 
 		if (onlySelectedShape.props.url !== urlInputState.safe) {
 			editor.updateShapes([
@@ -128,9 +135,7 @@ export const EditLinkDialogInner = track(function EditLinkDialogInner({
 						onCancel={handleCancel}
 					/>
 					<div>
-						{urlInputState.valid
-							? msg('edit-link-dialog.detail')
-							: msg('edit-link-dialog.invalid-url')}
+						{showInvalid ? msg('edit-link-dialog.invalid-url') : msg('edit-link-dialog.detail')}
 					</div>
 				</div>
 			</TldrawUiDialogBody>
