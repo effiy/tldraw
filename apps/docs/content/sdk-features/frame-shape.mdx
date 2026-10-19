@@ -31,7 +31,7 @@ editor.createShape({
 
 ## Creating frames
 
-You can create a frame programmatically with [Editor#createShape](?), or interactively with the frame tool. The frame tool ships in the default toolbar; users can also press `F` to switch to it. The **Frame selection** action (`Cmd/Ctrl+Alt+G`) wraps the current selection in a new frame.
+You can create a frame programmatically with [Editor#createShape](?), or interactively with the frame tool. The frame tool ships in the default toolbar; users can also press `F` to switch to it. The **Frame selection** action (`Cmd/Ctrl+Alt+G`) wraps the current selection in a new frame. Pressing the shortcut again with the frame selected removes it.
 
 When the user drags a frame around existing shapes, the frame tool reparents any sibling shapes that fall fully inside the frame's bounds. Locked shapes are skipped. This is what makes "draw a frame around the things I want to group" work as a single gesture.
 

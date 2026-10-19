@@ -758,17 +758,22 @@ describe('frame selection shortcut', () => {
 		expect(editor.getShape(target)?.parentId).toBe(frame!.id)
 	})
 
-	it('does not remove a selected frame on cmd+alt+g', async () => {
+	it('removes a selected frame on cmd+alt+g', async () => {
 		const { editor } = await setupFocusedEditor()
 		const frameId = createShapeId()
+		const childId = createShapeId()
 		act(() => {
-			editor.createShapes([{ id: frameId, type: 'frame', x: 0, y: 0, props: { w: 200, h: 200 } }])
+			editor.createShapes([
+				{ id: frameId, type: 'frame', x: 0, y: 0, props: { w: 200, h: 200 } },
+				{ id: childId, type: 'geo', parentId: frameId, x: 10, y: 10 },
+			])
 			editor.select(frameId)
 		})
 
 		keydown(editor, { key: 'g', code: 'KeyG', altKey: true, metaKey: true })
 
-		expect(editor.getShape(frameId)).toBeDefined()
+		expect(editor.getShape(frameId)).toBeUndefined()
+		expect(editor.getShape(childId)?.parentId).toBe(editor.getCurrentPageId())
 	})
 
 	it.each([
@@ -794,7 +799,7 @@ describe('frame selection shortcut', () => {
 })
 
 describe('group shortcut', () => {
-	it('does not ungroup a lone group on cmd+g', async () => {
+	it('ungroups a lone group on cmd+g', async () => {
 		const { editor } = await setupFocusedEditor()
 		const a = createShapeId()
 		const b = createShapeId()
@@ -810,7 +815,8 @@ describe('group shortcut', () => {
 
 		keydown(editor, { key: 'g', code: 'KeyG', metaKey: true })
 
-		expect(editor.getShape(groupId)).toBeDefined()
+		expect(editor.getShape(groupId)).toBeUndefined()
+		expect(new Set(editor.getSelectedShapeIds())).toEqual(new Set([a, b]))
 	})
 
 	it('still groups two shapes on cmd+g', async () => {
@@ -829,6 +835,44 @@ describe('group shortcut', () => {
 
 		const parent = editor.getShape(editor.getShape(a)!.parentId as any)
 		expect(parent?.type).toBe('group')
+	})
+
+	it('does not ungroup when grouping a mixed selection is blocked', async () => {
+		const { editor } = await setupFocusedEditor()
+		const a = createShapeId()
+		const b = createShapeId()
+		const target = createShapeId()
+		const arrow = createShapeId()
+		const groupId = createShapeId('group')
+		act(() => {
+			editor.createShapes([
+				{ id: a, type: 'geo', x: 0, y: 0 },
+				{ id: b, type: 'geo', x: 200, y: 0 },
+				{ id: target, type: 'geo', x: 400, y: 0 },
+				{ id: arrow, type: 'arrow', x: 300, y: 0 },
+			])
+			editor.groupShapes([a, b], { groupId })
+			editor.createBindings([
+				{
+					fromId: arrow,
+					toId: target,
+					type: 'arrow',
+					props: {
+						terminal: 'end',
+						normalizedAnchor: { x: 0.5, y: 0.5 },
+						isExact: false,
+						isPrecise: false,
+					},
+				},
+			])
+			editor.select(groupId, arrow)
+		})
+
+		keydown(editor, { key: 'g', code: 'KeyG', metaKey: true })
+
+		expect(editor.getShape(groupId)).toBeDefined()
+		expect(editor.getShape(a)?.parentId).toBe(groupId)
+		expect(editor.getShape(arrow)?.parentId).toBe(editor.getCurrentPageId())
 	})
 })
 

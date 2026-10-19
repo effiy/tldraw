@@ -236,6 +236,77 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				})
 		}
 
+		function getGroupToggleAction(editor: Editor): 'group' | 'ungroup' | null {
+			const onlySelectedShape = editor.getOnlySelectedShape()
+			if (onlySelectedShape && editor.isShapeOfType(onlySelectedShape, 'group')) {
+				return isUngroupAllowed(editor) ? 'ungroup' : null
+			}
+			return isGroupAllowed(editor) ? 'group' : null
+		}
+
+		function getFrameToggleAction(editor: Editor): 'frame-selection' | 'remove-frame' | null {
+			if (areAllSelectedFrameLike(editor)) return 'remove-frame'
+			return canFrameSelection(editor) ? 'frame-selection' : null
+		}
+
+		function ungroupSelectedShapes(source: TLUiEventSource) {
+			trackEvent('ungroup-shapes', { source })
+			editor.markHistoryStoppingPoint('ungroup')
+			editor.ungroupShapes(editor.getSelectedShapeIds())
+		}
+
+		function groupSelectedShapes(source: TLUiEventSource) {
+			trackEvent('group-shapes', { source })
+			editor.markHistoryStoppingPoint('group')
+			editor.groupShapes(editor.getSelectedShapeIds())
+		}
+
+		function frameSelectedShapes(source: TLUiEventSource) {
+			// Unlike group, a single shape can be framed, so there is no two-shape minimum.
+			const ids = getFrameableShapeIds(editor, editor.getSelectedShapeIds())
+			if (ids.length === 0) return
+
+			const shapes = compact(ids.map((id) => editor.getShape(id)))
+			const pageBounds = editor.getShapesPageBounds(ids)
+			if (!pageBounds) return
+			// Frame props reject zero dimensions, which a lone horizontal arrow or a dot has. The
+			// frame is fitted to its content with padding below, so a placeholder size is fine here.
+			const { w, h } = Box.ZeroFix(pageBounds)
+
+			trackEvent('frame-selection', { source })
+			editor.markHistoryStoppingPoint('frame-selection')
+
+			const parentId = editor.findCommonAncestor(shapes) ?? editor.getCurrentPageId()
+
+			const frameId = createShapeId()
+			const padding = 25 / editor.getZoomLevel()
+
+			editor.run(() => {
+				editor.createShapes([
+					{
+						id: frameId,
+						type: 'frame',
+						parentId,
+						x: pageBounds.x,
+						y: pageBounds.y,
+						props: { w, h },
+					},
+				])
+				editor.reparentShapes(ids, frameId)
+				fitFrameToContent(editor, frameId, { padding })
+				editor.select(frameId)
+			})
+		}
+
+		function removeSelectedFrames(source: TLUiEventSource) {
+			trackEvent('remove-frame', { source })
+			editor.markHistoryStoppingPoint('remove-frame')
+			removeFrame(
+				editor,
+				editor.getSelectedShapes().map((shape) => shape.id)
+			)
+		}
+
 		const actionItems: TLUiActionItem<TLUiTranslationKey, TLUiIconType>[] = [
 			{
 				id: 'edit-link',
@@ -624,78 +695,49 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				label: 'action.ungroup',
 				kbd: 'cmd+shift+g,ctrl+shift+g',
 				icon: 'ungroup',
-				onSelect(source) {
-					trackEvent('ungroup-shapes', { source })
-					editor.markHistoryStoppingPoint('ungroup')
-					editor.ungroupShapes(editor.getSelectedShapeIds())
-				},
+				onSelect: ungroupSelectedShapes,
 			},
 			{
 				id: 'group',
 				isEnabled: (editor) => editor.isIn('select') && isGroupAllowed(editor),
 				label: 'action.group',
+				icon: 'group',
+				onSelect: groupSelectedShapes,
+			},
+			{
+				id: 'toggle-group',
+				isEnabled: (editor) => editor.isIn('select') && getGroupToggleAction(editor) !== null,
+				label: 'action.group',
 				kbd: 'cmd+g,ctrl+g',
 				icon: 'group',
 				onSelect(source) {
-					trackEvent('group-shapes', { source })
-					editor.markHistoryStoppingPoint('group')
-					editor.groupShapes(editor.getSelectedShapeIds())
+					const action = getGroupToggleAction(editor)
+					if (action === 'group') groupSelectedShapes(source)
+					if (action === 'ungroup') ungroupSelectedShapes(source)
 				},
 			},
 			{
 				id: 'frame-selection',
 				isEnabled: (editor) => editor.isIn('select') && canFrameSelection(editor),
 				label: 'action.frame-selection',
-				kbd: 'cmd+alt+g,ctrl+alt+g',
-				onSelect(source) {
-					// Unlike group, a single shape can be framed, so there is no two-shape minimum.
-					const ids = getFrameableShapeIds(editor, editor.getSelectedShapeIds())
-					if (ids.length === 0) return
-
-					const shapes = compact(ids.map((id) => editor.getShape(id)))
-					const pageBounds = editor.getShapesPageBounds(ids)
-					if (!pageBounds) return
-					// Frame props reject zero dimensions, which a lone horizontal arrow or a dot has. The
-					// frame is fitted to its content with padding below, so a placeholder size is fine here.
-					const { w, h } = Box.ZeroFix(pageBounds)
-
-					trackEvent('frame-selection', { source })
-					editor.markHistoryStoppingPoint('frame-selection')
-
-					const parentId = editor.findCommonAncestor(shapes) ?? editor.getCurrentPageId()
-
-					const frameId = createShapeId()
-					const padding = 25 / editor.getZoomLevel()
-
-					editor.run(() => {
-						editor.createShapes([
-							{
-								id: frameId,
-								type: 'frame',
-								parentId,
-								x: pageBounds.x,
-								y: pageBounds.y,
-								props: { w, h },
-							},
-						])
-						editor.reparentShapes(ids, frameId)
-						fitFrameToContent(editor, frameId, { padding })
-						editor.select(frameId)
-					})
-				},
+				onSelect: frameSelectedShapes,
 			},
 			{
 				id: 'remove-frame',
 				isEnabled: (editor) => editor.isIn('select') && areAllSelectedFrameLike(editor),
 				label: 'action.remove-frame',
 				kbd: 'cmd+alt+shift+g,ctrl+alt+shift+g',
+				onSelect: removeSelectedFrames,
+			},
+			{
+				id: 'toggle-frame',
+				isEnabled: (editor) => editor.isIn('select') && getFrameToggleAction(editor) !== null,
+				label: 'action.frame-selection',
+				kbd: 'cmd+alt+g,ctrl+alt+g',
 				onSelect(source) {
-					trackEvent('remove-frame', { source })
-					editor.markHistoryStoppingPoint('remove-frame')
-					removeFrame(
-						editor,
-						editor.getSelectedShapes().map((shape) => shape.id)
-					)
+					const action = getFrameToggleAction(editor)
+					if (action === 'frame-selection') frameSelectedShapes(source)
+					if (action === 'remove-frame') removeSelectedFrames(source)
 				},
 			},
 			{

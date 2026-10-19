@@ -61,9 +61,9 @@ export function DefaultKeyboardShortcutsDialogContent() {
 				<TldrawUiMenuActionItem actionId="bring-forward" />
 				<TldrawUiMenuActionItem actionId="send-backward" />
 				<TldrawUiMenuActionItem actionId="send-to-back" />
-				<TldrawUiMenuActionItem actionId="group" />
+				<TldrawUiMenuActionItem actionId="toggle-group" />
 				<TldrawUiMenuActionItem actionId="ungroup" />
-				<TldrawUiMenuActionItem actionId="frame-selection" />
+				<TldrawUiMenuActionItem actionId="toggle-frame" />
 				<TldrawUiMenuActionItem actionId="remove-frame" />
 				<TldrawUiMenuActionItem actionId="flatten-to-image" />
 				<TldrawUiMenuActionItem actionId="toggle-lock" />
