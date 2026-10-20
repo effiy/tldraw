@@ -2,8 +2,29 @@
 title: Edge scrolling
 component: ./EdgeScrollingExample.tsx
 priority: 1
-keywords: [scroll, edge, auto-scroll, drag, edge scroll manager, options, camera]
+keywords:
+  - scroll
+  - edge
+  - auto-scroll
+  - drag
+  - edge scroll manager
+  - options
+  - camera
+tags:
+  - tldraw
+  - readme
+  - example
+  - configuration
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Configure how the camera auto-scrolls when dragging near the viewport edge.
 
@@ -17,3 +38,52 @@ Edge scrolling automatically pans the camera when you drag a shape or selection 
 - `edgeScrollDistance`: the width of the edge zone that triggers scrolling (default 8px)
 
 Drag one of the shapes toward a window edge to feel the current settings, then adjust the sliders and try again. The sliders commit on release because editor options are read when the editor is created: changing the `options` prop recreates the editor instance.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

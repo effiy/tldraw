@@ -2,8 +2,29 @@
 title: Drawn comment reactions
 component: ./CommentDrawingReactionsExample.tsx
 priority: 8
-keywords: [comments, commenting, reactions, emoji, custom, drawing, collaboration]
+keywords:
+  - comments
+  - commenting
+  - reactions
+  - emoji
+  - custom
+  - drawing
+  - collaboration
+tags:
+  - tldraw
+  - readme
+  - example
+  - collaboration
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Replace the emoji reaction picker with one you draw in.
 
@@ -16,3 +37,52 @@ A reaction's token is a free-form string, capped at 64 characters, and the comme
 The three pieces are wired together with `CommentTool.configure({ components: { ReactionPalette, ReactionContent }, isAllowedReaction })`, and the record type is registered on the schema next to `commentSchemaRecords`.
 
 Post a comment, then open its reaction picker and draw something.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

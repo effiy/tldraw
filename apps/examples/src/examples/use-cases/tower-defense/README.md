@@ -2,8 +2,30 @@
 title: Tower defense
 component: ./TowerDefenseExample.tsx
 priority: 5
-keywords: [overlay, overlayutil, canvas, animation, game, hit testing, raf, tick]
+keywords:
+  - overlay
+  - overlayutil
+  - canvas
+  - animation
+  - game
+  - hit testing
+  - raf
+  - tick
+tags:
+  - tldraw
+  - readme
+  - example
+  - use-cases
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 A small tower defense game whose enemies, projectiles, and effects are drawn with `OverlayUtil` classes on the overlay canvas.
 
@@ -14,3 +36,52 @@ Pick a tower from the toolbar (or press 1, 2, or 3) and click the canvas to plac
 Everything that moves is an `OverlayUtil` subclass registered through the `overlayUtils` prop: the path, enemies, projectiles, explosions, tower ranges, the placement preview, and the upgrade button. Game state lives in `atom`s that `getOverlays()` reads, so when the game loop updates them every overlay redraws reactively. Overlays that respond to input implement `getGeometry()` for hit testing, `getCursor()` for the hover cursor, and `onPointerDown()` for clicks; the editor routes pointer events to them before the canvas.
 
 The game loop runs on the editor's `tick` event, which fires once per frame with the elapsed milliseconds. Tower placement itself goes through an overlay too: the preview follows the pointer and its `onPointerDown` creates the geo shape.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

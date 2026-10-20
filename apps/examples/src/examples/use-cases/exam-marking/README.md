@@ -2,8 +2,31 @@
 title: Mark exams
 component: ./ExamMarkingExample.tsx
 priority: 4
-keywords: [education, pdf, annotation, marking, scoring, grading, toolbar, ui overrides, widget]
+keywords:
+  - education
+  - pdf
+  - annotation
+  - marking
+  - scoring
+  - grading
+  - toolbar
+  - ui overrides
+  - widget
+tags:
+  - tldraw
+  - readme
+  - example
+  - use-cases
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Mark up an exam PDF with per-question score shapes and see the total tallied live.
 
@@ -17,3 +40,52 @@ This builds on the [pdf-editor](https://examples.tldraw.com/pdf-editor) example 
 - UI overrides that add the tool to the toolbar and the keyboard shortcuts dialog (shortcut `M`).
 
 Try it: open the example exam, click on a question to drop a mark, type a score, and watch the total change.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

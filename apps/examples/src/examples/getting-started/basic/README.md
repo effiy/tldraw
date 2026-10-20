@@ -3,18 +3,30 @@ title: Tldraw component
 component: ./BasicExample.tsx
 priority: 0
 keywords:
-  [
-    basic,
-    getting started,
-    intro,
-    simple,
-    quick start,
-    hello world,
-    installation,
-    first app,
-    tldraw component,
-  ]
+  - basic
+  - getting started
+  - intro
+  - simple
+  - quick start
+  - hello world
+  - installation
+  - first app
+  - tldraw component
+tags:
+  - tldraw
+  - readme
+  - example
+  - getting-started
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 The simplest way to use the `Tldraw` component.
 
@@ -25,3 +37,52 @@ The `Tldraw` component renders the full tldraw editor as a regular React compone
 Import `tldraw/tldraw.css` alongside the component. Without it, the editor's UI has no styling.
 
 By default the editor does not persist between refreshes or sync between tabs. To keep your work after a refresh, see the [persistence key example](https://tldraw.dev/examples/persistence-key).
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

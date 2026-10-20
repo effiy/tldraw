@@ -1,8 +1,55 @@
-# npm create tldraw
+---
+title: npm create tldraw
+tags:
+  - tldraw
+  - readme
+  - package
+  - create-tldraw
+category: packages
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 A CLI tool for quickly scaffolding a new tldraw project. Inspired by `npm create vite`.
 
-## Usage:
+### Adding more templates
+
+Templates are automatically pulled into this tool by `/internal/scripts/refresh-create-templates.ts`.
+This will add a template entry for any workspace in the repo which has a `package.json` with a `tldraw_template` key that looks like this:
+
+```jsonc
+{
+	// indicates that this is a template app and should be published:
+	"tldraw_template": {
+		// the github repo to publish this template to
+		"repo": "tldraw/vite-template",
+		// if `cli` is present, we'll include this template in `npm create tldraw`
+		"cli": {
+			// the name of this template, as it appears in the CLI tool
+			"name": "Vite + tldraw",
+			// the description of this template as it appears in the CLI tool
+			"description": "The easiest way to get started with tldraw. Built with Vite, React, and TypeScript.",
+			// (optional) a shorter description of the template, shown in `--help`
+			"shortDescription": "The easiest way to get started with tldraw.",
+			// (optional) where in its category should this template appear? lower numbers appear first
+			"order": 1,
+		},
+	},
+}
+```
+
+
+---
+
+## ⚡ 功能
+
+### Usage:
 
 ```
 $ npm create tldraw -- --help
@@ -34,61 +81,73 @@ $ npm create tldraw@latest .
 
 If the directory already has files in it, you'll be asked whether to keep them, remove them (`.git` is always kept), or cancel.
 
-## Development
 
-Run in development mode with `pnpm dev` from this folder.
-You can also run `alias create-tldraw=~/<path to this repo>/packages/create-tldraw/scripts/dev.sh`, and then use `create-tldraw` to run the development version of this script.
+---
 
-## Adding more templates
+## 📊 指标
 
-Templates are automatically pulled into this tool by `/internal/scripts/refresh-create-templates.ts`.
-This will add a template entry for any workspace in the repo which has a `package.json` with a `tldraw_template` key that looks like this:
+「待补充」
 
-```jsonc
-{
-	// indicates that this is a template app and should be published:
-	"tldraw_template": {
-		// the github repo to publish this template to
-		"repo": "tldraw/vite-template",
-		// if `cli` is present, we'll include this template in `npm create tldraw`
-		"cli": {
-			// the name of this template, as it appears in the CLI tool
-			"name": "Vite + tldraw",
-			// the description of this template as it appears in the CLI tool
-			"description": "The easiest way to get started with tldraw. Built with Vite, React, and TypeScript.",
-			// (optional) a shorter description of the template, shown in `--help`
-			"shortDescription": "The easiest way to get started with tldraw.",
-			// (optional) where in its category should this template appear? lower numbers appear first
-			"order": 1,
-		},
-	},
-}
-```
 
-## Documentation
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Documentation
 
 Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
 
 For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
 
-## License
+### License
 
 This project is part of the tldraw SDK. It is provided under the [tldraw SDK license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
 You can use the tldraw SDK in commercial or non-commercial projects so long as you preserve the "Made with tldraw" watermark on the canvas. To remove the watermark, you can purchase a [business license](https://tldraw.dev/pricing). Visit [tldraw.dev](https://tldraw.dev) to learn more.
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2025-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.gg/rhsyWMUJxd). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw) or email us at [hello@tldraw.com](mailto:hello@tldraw.com).
+
+
+---
+
+## 🚀 快速开始
+
+### Development
+
+Run in development mode with `pnpm dev` from this folder.
+You can also run `alias create-tldraw=~/<path to this repo>/packages/create-tldraw/scripts/dev.sh`, and then use `create-tldraw` to run the development version of this script.
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

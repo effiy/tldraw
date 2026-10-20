@@ -1,49 +1,29 @@
-# VS Code extension
+---
+title: VS Code extension
+tags:
+  - tldraw
+  - readme
+  - application
+category: apps
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 This folder contains the source for the tldraw VS Code extension.
 
-## Developing
-
-## 1. Install dependencies
-
-- Run `pnpm` from the root folder
-
-## 2. Start the editor
-
-In the root folder:
-
-- Run `pnpm dev-vscode`.
-
-This will start the development server for the `apps/vscode/editor` project and open the `apps/vscode/extension` folder in a new VS Code window.
-
-In the `apps/vscode/extension` window, open the terminal and:
-
-- Install dependencies (`pnpm`)
-- Start the VS Code debugger (`Menu > Run > Start Debugging` or by pressing `F5`). This will open another VS Code window with the extension running.
-
-Open a `.tldr` file from the file explorer or create a new `.tldr` file from the command palette.
-
-## 3. Debugging
+### 3. Debugging
 
 You can use standard debugging techniques like `console.log`, which will be displayed in the VS Code window with the extension running. It will display logs both from the Extension and the Editor. VS Code editor with the Extension folder will show more detailed logs from the Extension project. You can also use a debugger.
 
 The code is hot-reloaded, so the developer experience is quite nice.
 
-## Publishing
-
-Update the version in the `apps/vscode/extension/package.json`. Update the `apps/vscode/extension/CHANGELOG.md` with the new version number and the changes.
-
-To publish:
-
-- Install `vsce` globally
-- Run `vsce login tldraw-org` and sign in. For this to work you need to create a [personal access token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token) and you also need to be added to the `tldraw-org` organization on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/manage).
-
-In the `apps/vscode/extension` folder:
-
-- Run `pnpm package`
-- Run `pnpm run publish`
-
-## Project overview
+### Project overview
 
 The Visual Studio Code extension is made of two projects:
 
@@ -73,7 +53,40 @@ VS Code activates our extension when needed - when a user opens the first `.tldr
 
 ![VS Code Extension](VS-Code-Extension-1.png)
 
-#### References
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### References
 
 - [VS Code Marketplace Manager](https://marketplace.visualstudio.com/manage/)
 - [Web Extensions Guide](https://code.visualstudio.com/api/extension-guides/web-extensions)
@@ -89,26 +102,71 @@ VS Code activates our extension when needed - when a user opens the first `.tldr
 - [Extensions Guide -> Webviews](https://code.visualstudio.com/api/extension-guides/webview)
 - [Publishing Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
 
-## Distributions
+### Distributions
 
 You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## License
+### License
 
 The code in this folder is Copyright (c) 2024-present tldraw Inc. The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+
+---
+
+## 🚀 快速开始
+
+### 1. Install dependencies
+
+- Run `pnpm` from the root folder
+
+### 2. Start the editor
+
+In the root folder:
+
+- Run `pnpm dev-vscode`.
+
+This will start the development server for the `apps/vscode/editor` project and open the `apps/vscode/extension` folder in a new VS Code window.
+
+In the `apps/vscode/extension` window, open the terminal and:
+
+- Install dependencies (`pnpm`)
+- Start the VS Code debugger (`Menu > Run > Start Debugging` or by pressing `F5`). This will open another VS Code window with the extension running.
+
+Open a `.tldr` file from the file explorer or create a new `.tldr` file from the command palette.
+
+### Publishing
+
+Update the version in the `apps/vscode/extension/package.json`. Update the `apps/vscode/extension/CHANGELOG.md` with the new version number and the changes.
+
+To publish:
+
+- Install `vsce` globally
+- Run `vsce login tldraw-org` and sign in. For this to work you need to create a [personal access token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token) and you also need to be added to the `tldraw-org` organization on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/manage).
+
+In the `apps/vscode/extension` folder:
+
+- Run `pnpm package`
+- Run `pnpm run publish`
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

@@ -1,16 +1,24 @@
-# @tldraw/tlschema
+---
+title: "@tldraw/tlschema"
+tags:
+  - tldraw
+  - readme
+  - package
+  - tlschema
+category: packages
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 Type definitions, schema migrations, and other type metadata for the tldraw editor's default persisted data.
 
-## Documentation
-
-Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
-
-For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
-
-A `DOCS.md` file is included alongside this README in the published package, with detailed API documentation and usage examples.
-
-## Records
+### Records
 
 There are three main kinds of types:
 
@@ -26,7 +34,7 @@ There are three main kinds of types:
 
   These are subtypes of the root TLAsset record type. They allow specifying a unique name and custom props for a particular kind of asset.
 
-# Adding migrations
+### Adding migrations
 
 If you make any kind of change to any persisted data shape in this package, you must add migrations that are able to convert old versions to new versions, and vice-versa.
 
@@ -74,26 +82,81 @@ and then adding a migration:
 
 After you've added your migration, make sure to add a test for it in `src/migrations.test.ts`. It will complain if you do not!
 
-## License
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Documentation
+
+Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
+
+For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
+
+A `DOCS.md` file is included alongside this README in the published package, with detailed API documentation and usage examples.
+
+### License
 
 This project is licensed under the MIT License found [here](https://github.com/tldraw/tldraw/blob/main/packages/tlschema/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Distributions
+### Distributions
 
 You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

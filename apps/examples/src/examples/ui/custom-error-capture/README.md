@@ -3,17 +3,29 @@ title: Custom error capture
 component: ./CustomErrorCaptureExample.tsx
 priority: 3
 keywords:
-  [
-    error,
-    ErrorFallback,
-    error boundary,
-    crash handling,
-    getErrorAnnotations,
-    sentry,
-    debugging,
-    error tracking,
-  ]
+  - error
+  - ErrorFallback
+  - error boundary
+  - crash handling
+  - getErrorAnnotations
+  - sentry
+  - debugging
+  - error tracking
+tags:
+  - tldraw
+  - readme
+  - example
+  - ui
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Customize the error screen that appears when the editor crashes and read the annotations tldraw attaches to errors.
 
@@ -26,3 +38,52 @@ tldraw annotates errors with extra information about the editor's state at the t
 Click "Throw an error" to trigger a crash and see the custom fallback.
 
 A separate component, `ShapeErrorFallback`, handles errors in individual shapes; see the error boundary example for that. `ErrorFallback` handles editor-level errors that affect the entire application.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

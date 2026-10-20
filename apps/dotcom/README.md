@@ -1,6 +1,63 @@
-# dotcom
+---
+title: dotcom
+tags:
+  - tldraw
+  - readme
+  - application
+category: apps
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
 
-## Development
+## 💡 概述
+
+「待补充」
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+### Development
 
 You'll need a clerk publishable and secret key.
 
@@ -32,3 +89,10 @@ By default `pnpm dev-app` opens the process-compose TUI, listing each service wi
 - **Reset server state:** `pnpm dev-app:clean` tears down the postgres container + volume, the zero replica, and wrangler state.
 
 Browser-side state is separate. After starting the stack, visit `http://localhost:3000/dev/reset-local-state` to clear local storage, IndexedDB, caches, service workers, accessible cookies, and Clerk session state for the current origin.
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

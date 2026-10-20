@@ -2,8 +2,30 @@
 title: Text mass style updates
 component: ./TextMassStyleUpdates.tsx
 priority: 2
-keywords: [text, contextual, mass, style, bold, italic, highlight, styles]
+keywords:
+  - text
+  - contextual
+  - mass
+  - style
+  - bold
+  - italic
+  - highlight
+  - styles
+tags:
+  - tldraw
+  - readme
+  - example
+  - ui
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Toggle bold, italic, or highlight on all the text in the selected shapes, including text nested in frames.
 
@@ -14,3 +36,52 @@ Rich text in tldraw is a TipTap (ProseMirror) JSON document. This example parses
 The buttons live in a custom `StylePanel` that wraps `DefaultStylePanel`. They only appear when the selection (expanded with `editor.getShapeAndDescendantIds`) contains at least one shape with rich text, and each shows as active when every text node already carries its mark. Try selecting a frame full of text and pressing "Bold all".
 
 For a lighter version that walks the JSON directly, see the [format rich text on multiple shapes](https://tldraw.dev/examples/rich-text-on-multiple-shapes) example.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

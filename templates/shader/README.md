@@ -1,3 +1,20 @@
+---
+title: Shader
+tags:
+  - tldraw
+  - readme
+  - template
+category: templates
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
+
 <div alt style="text-align: center; transform: scale(.5);">
 	<picture>
 		<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tldraw/tldraw/main/assets/github-hero-dark.png" />
@@ -7,15 +24,7 @@
 
 This template demonstrates how to integrate WebGL shaders with [tldraw](https://github.com/tldraw/tldraw), creating dynamic backgrounds that respond to canvas interactions. It includes four complete examples and a reusable `WebGLManager` base class for building custom shader effects.
 
-## Local development
-
-Install dependencies with `npm install`.
-
-Run the development server with `npm run dev`.
-
-Open `http://localhost:5173/` in your browser to see the app.
-
-## What's included
+### What's included
 
 - **WebGLManager base class** ([`src/WebGLManager.ts`](src/WebGLManager.ts)) - Handles WebGL lifecycle, viewport synchronization, and animation loop integration with tldraw's reactive system
 - **Four example shaders** - Fluid simulation, rainbow gradients, dynamic shadows, and a minimal starter template
@@ -23,8 +32,6 @@ Open `http://localhost:5173/` in your browser to see the app.
 - **Full TypeScript support** - Strongly typed throughout
 
 Switch between examples using the toggle buttons in the tldraw style panel.
-
-## Examples
 
 ### Fluid Simulation
 
@@ -54,8 +61,6 @@ A bare-bones template for starting new shader projects. Renders a solid color th
 
 **See:** [`src/minimal/`](src/minimal/) | [Documentation](src/minimal/minimal-example.md)
 
-## Architecture
-
 ### WebGLManager
 
 The `WebGLManager` class ([`src/WebGLManager.ts`](src/WebGLManager.ts)) provides the foundation for all shader examples. It handles:
@@ -78,20 +83,7 @@ The config panel system ([`src/config-panel/`](src/config-panel/)) provides reus
 
 Config values are stored in reactive atoms and automatically persisted to localStorage. See [config-panel.md](src/config-panel/config-panel.md) for usage details.
 
-### Renderer Pattern
-
-Each example follows this pattern:
-
-1. Define a config interface extending `WebGLManagerConfig` in `config.ts`
-2. Create a shader manager class extending `WebGLManager`
-3. Write GLSL shaders (vertex and fragment)
-4. Create a React renderer component using `useLayoutEffect` to initialize the manager
-5. Build a config panel for live parameter adjustment
-6. Register the renderer as tldraw's `Background` component
-
-See any of the example directories for complete implementations.
-
-## Creating a custom shader
+### Creating a custom shader
 
 The fastest way to create a custom shader is to copy the minimal example:
 
@@ -111,7 +103,7 @@ Finally, register your shader in [`src/App.tsx`](src/App.tsx).
 
 For a detailed walkthrough, see [src/minimal/minimal-example.md](src/minimal/minimal-example.md).
 
-## Integration with tldraw
+### Integration with tldraw
 
 The `WebGLManager` has direct access to the tldraw editor instance, allowing you to:
 
@@ -123,33 +115,97 @@ The `WebGLManager` has direct access to the tldraw editor instance, allowing you
 
 The fluid simulation example ([`src/fluid/FluidManager.ts`](src/fluid/FluidManager.ts)) demonstrates shape integration in depth.
 
-## Resources
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+### Renderer Pattern
+
+Each example follows this pattern:
+
+1. Define a config interface extending `WebGLManagerConfig` in `config.ts`
+2. Create a shader manager class extending `WebGLManager`
+3. Write GLSL shaders (vertex and fragment)
+4. Create a React renderer component using `useLayoutEffect` to initialize the manager
+5. Build a config panel for live parameter adjustment
+6. Register the renderer as tldraw's `Background` component
+
+See any of the example directories for complete implementations.
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Resources
 
 - [WebGL2 Fundamentals](https://webgl2fundamentals.org/) - WebGL tutorials
 - [The Book of Shaders](https://thebookofshaders.com/) - GLSL shader programming
 - [Shadertoy](https://www.shadertoy.com/) - Shader examples
 - [tldraw Documentation](https://tldraw.dev) - tldraw SDK docs
 
-## License
+### License
 
 This project is provided under the MIT license found [here](https://github.com/tldraw/vite-template/blob/main/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Distributions
+### Distributions
 
 You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
+
+
+---
+
+## 🚀 快速开始
+
+### Local development
+
+Install dependencies with `npm install`.
+
+Run the development server with `npm run dev`.
+
+Open `http://localhost:5173/` in your browser to see the app.
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

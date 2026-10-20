@@ -1,4 +1,19 @@
-# Grafana dashboards and alerts
+---
+title: Grafana dashboards and alerts
+tags:
+  - tldraw
+  - readme
+  - internal
+category: internal
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 **TL;DR:** `resources/` is the source of truth for our Grafana Cloud dashboards and alert rules. CI pushes it with `gcx` on every merge to `main` that touches these files. Edit here, not in Grafana — UI edits get overwritten by the next deploy.
 
@@ -15,11 +30,11 @@ There are two MCP dashboards, for two different servers. `MCP server (shared boa
 
 Contact points, notification policies, and data sources are hand-managed in Grafana on purpose.
 
-## Conventions
+### Conventions
 
 Every provisioned dashboard carries the tags `provisioned` and `repo:tldraw/tldraw`, so anyone looking at it in Grafana knows where it's managed from. Add both tags when adopting a new dashboard into this tree.
 
-## Anthropic rules
+### Anthropic rules
 
 The three rules in the `Anthropic` folder watch the Grafana Anthropic integration's scrape of the Anthropic Admin API. The two metrics behave very differently, and the rules are shaped around that:
 
@@ -36,13 +51,13 @@ The three rules in the `Anthropic` folder watch the Grafana Anthropic integratio
 
 All three are filter queries (`expr > threshold`), so the alert series only exists while the condition holds. `missingSeriesEvalsToResolve: 10` is what stops a single quiet minute from resolving and re-firing them.
 
-## Making a change
+### Making a change
 
 1. Edit the files under `resources/`.
 2. Open a PR. CI validates the resources and dry-runs the push so you can see what would change. (The alerting API doesn't support server-side dry-run, so alert rules show as "skipped: client-side check only" — that's expected, not an error.)
 3. Merge. The deploy workflow (`.github/workflows/deploy-grafana.yml`) pushes to Grafana Cloud.
 
-## Adding a new alert rule
+### Adding a new alert rule
 
 A rule file carrying `grafana.com/group` labels cannot be _created_ by the push. Grafana rejects it with `cannot set group when creating a new rule` — the resource API can only update a rule that is already in a group. Nothing catches this earlier: alerting has no server-side dry-run, so the PR reports the rule as "skipped" and goes green.
 
@@ -55,7 +70,23 @@ Bootstrap the group once by hand, then let the push adopt it:
 
 `dotcom-file-do-exceptions` was created this way on 2026-08-18, after PR #10052's deploy failed on it.
 
-## Pulling fresh state
+### Service account access
+
+CI authenticates with a Grafana service account token (`GRAFANA_SERVER` / `GRAFANA_TOKEN` repo secrets). The `zero-fly-health` dashboard has restricted permissions: the service account needs an explicit grant on it (or admin role) or pulls and pushes will 403.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+### Pulling fresh state
 
 If you prototyped a dashboard in the Grafana UI and want to adopt it, pull it into the tree with a local gcx context (`gcx login`):
 
@@ -68,10 +99,39 @@ Don't hand-reformat gcx output; it needs to round-trip. Exception: `zero-fly-hea
 
 Alert rules created through Grafana's "import Prometheus rules" flow can't be pushed: they carry `converted_prometheus` provenance, and Grafana only accepts writes to a rule from the tool that owns its provenance. To adopt one, strip the `alerting.grafana.app/prometheus-rule-definition` annotation and set `grafana.com/provenance: ''` in the pulled file, then recreate the rule in Grafana with clear provenance so the push can take ownership: delete the imported group (`gcx api /api/convert/prometheus/config/v1/rules/<folder title>/<group> -X DELETE`), recreate it via `gcx api /api/v1/provisioning/folder/<folder uid>/rule-groups/<group> -X PUT -H 'X-Disable-Provenance: true' -d @group.json`, and push. Recreating grouped rules must go through that group endpoint — the resource API gcx pushes with can't add rules to groups, only update rules already in one. The three Anthropic cost rules went through this adoption on 2026-08-10 and are repo-owned now — don't re-run the integration's rule import for them, which would recreate the imported group alongside the adopted one and bring the provenance clash back.
 
-## Deleting a resource
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Deleting a resource
 
 Deleting a file here does **not** delete it in Grafana. Remove the file and run `gcx resources delete <type>/<uid>` manually.
 
-## Service account access
 
-CI authenticates with a Grafana service account token (`GRAFANA_SERVER` / `GRAFANA_TOKEN` repo secrets). The `zero-fly-health` dashboard has restricted permissions: the service account needs an explicit grant on it (or admin role) or pulls and pushes will 403.
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

@@ -3,20 +3,32 @@ title: Custom user metadata
 component: ./CustomUserExample.tsx
 priority: 3
 keywords:
-  [
-    user,
-    custom,
-    meta,
-    metadata,
-    isAdmin,
-    department,
-    TLUser,
-    TLUserStore,
-    createTLSchema,
-    createUserRecordType,
-    extensibility,
-  ]
+  - user
+  - custom
+  - meta
+  - metadata
+  - isAdmin
+  - department
+  - TLUser
+  - TLUserStore
+  - createTLSchema
+  - createUserRecordType
+  - extensibility
+tags:
+  - tldraw
+  - readme
+  - example
+  - users
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Store app-specific fields like roles and departments in `TLUser.meta`.
 
@@ -36,3 +48,52 @@ const schema = createTLSchema({
 	},
 })
 ```
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

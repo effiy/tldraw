@@ -2,8 +2,30 @@
 title: Embed permissions
 component: ./EmbedPermissionsExample.tsx
 priority: 3
-keywords: [embed, iframe, sandbox, permissions, aspect ratio, interactive, youtube, security]
+keywords:
+  - embed
+  - iframe
+  - sandbox
+  - permissions
+  - aspect ratio
+  - interactive
+  - youtube
+  - security
+tags:
+  - tldraw
+  - readme
+  - example
+  - configuration
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Configure embed sandbox permissions, aspect ratio locking, and visual options.
 
@@ -17,3 +39,52 @@ Embedded iframes in tldraw are sandboxed with deliberately conservative defaults
 The example also shows the embed interactivity rule: an embed's iframe ignores pointer events until you double-click the shape to enter its editing state, which is why embeds can be dragged and resized without the iframe capturing the pointer.
 
 For adding a new embed provider from scratch, see the custom embed example.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

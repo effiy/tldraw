@@ -1,8 +1,74 @@
-# Dotcom E2E conventions
+---
+title: Dotcom E2E conventions
+tags:
+  - tldraw
+  - readme
+  - application
+category: apps
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 Issue #9185 is moving dotcom tests toward user scenarios instead of isolated UI smoke tests. New collaborative dotcom coverage should prefer the scenario fixture in `fixtures/scenario-test.ts`.
 
-## Scenario tests
+### Auth follow-ups
+
+The remaining auth edge cases are still tracked by issue #9185. Keep them out of the scenario project until they have Clerk-level mocking or stable account state that can run without per-test shared-user reset.
+
+Follow-up migration groups:
+
+- Auth legal acceptance and analytics consent: replace route-level Clerk response patching with a stable Clerk test account state or a mocked Clerk client boundary.
+- Auth verification and resend behavior: isolate Clerk network failures, malformed responses, cooldown behavior, and code input behavior without depending on shared signed-in user cleanup.
+- OAuth auth flows: add a Clerk/OAuth boundary that can exercise Google sign-in and legal acceptance without external redirects.
+- Auth response edge cases: cover completed sessions, inconsistent `missing_fields` payloads, and missing email-code factor data once Clerk responses can be mocked below the route layer.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+### Scenario tests
 
 - Name scenario files `*.scenario.spec.ts`. They run in the `chromium-scenarios` project with `fullyParallel: true`.
 - Run the ordinary local/CI dotcom suite with `pnpm e2e-dotcom` from the repo root, or `pnpm --filter dotcom e2e` from this workspace. This runs the scenario project only.
@@ -21,13 +87,9 @@ Issue #9185 is moving dotcom tests toward user scenarios instead of isolated UI 
 - Prefer live assertions across already-open windows. Reload-based checks are still useful for persistence, but they should not be the only proof for collaboration, permission, or membership behavior.
 - Wait for readiness through actor helpers and page objects. `actor.goto` waits for the canvas, auth state, app store hydration when a signed-in app is present, mounted editor, file room connection, and visitor access metadata. Use the narrower `actor.waitForAuthLoaded`, `actor.waitForAppStoreHydrated`, `actor.waitForEditorReady`, `actor.waitForFileRoomConnected`, `actor.waitForVisitorAccessMetadata`, and `actor.waitForSessionClosed` helpers when a test needs to prove a specific transition. Avoid new sleeps unless the product intentionally waits.
 
-## Auth follow-ups
 
-The remaining auth edge cases are still tracked by issue #9185. Keep them out of the scenario project until they have Clerk-level mocking or stable account state that can run without per-test shared-user reset.
+---
 
-Follow-up migration groups:
+## ⚙️ 技术栈
 
-- Auth legal acceptance and analytics consent: replace route-level Clerk response patching with a stable Clerk test account state or a mocked Clerk client boundary.
-- Auth verification and resend behavior: isolate Clerk network failures, malformed responses, cooldown behavior, and code input behavior without depending on shared signed-in user cleanup.
-- OAuth auth flows: add a Clerk/OAuth boundary that can exercise Google sign-in and legal acceptance without external redirects.
-- Auth response edge cases: cover completed sessions, inconsistent `missing_fields` payloads, and missing email-code factor data once Clerk responses can be mocked below the route layer.
+「待补充」

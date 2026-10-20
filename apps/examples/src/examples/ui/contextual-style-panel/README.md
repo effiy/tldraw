@@ -2,8 +2,28 @@
 title: Contextual style panel
 component: ./ContextualStylePanelExample.tsx
 priority: 2
-keywords: [style panel, contextual toolbar, infrontofthecanvas, selection, floating ui, styles]
+keywords:
+  - style panel
+  - contextual toolbar
+  - infrontofthecanvas
+  - selection
+  - floating ui
+  - styles
+tags:
+  - tldraw
+  - readme
+  - example
+  - ui
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Replace the built-in style panel with style controls of your own.
 
@@ -18,3 +38,52 @@ The toolbar shows only the styles that belong to what you've selected, so it's t
 The same rule covers custom shapes. Declare `color: DefaultColorStyle` in your shape's props and the color picker appears with no extra wiring.
 
 The toolbar leaves out the opacity slider, which is the one control in the docked panel that isn't a style prop.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

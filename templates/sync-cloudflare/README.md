@@ -1,4 +1,19 @@
-# tldraw sync server
+---
+title: tldraw sync server
+tags:
+  - tldraw
+  - readme
+  - template
+category: templates
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 This is a production-ready backend for [tldraw sync](https://tldraw.dev/docs/sync).
 
@@ -34,7 +49,96 @@ Static assets like images and videos are too big to be synced via websockets and
 Instead, they're uploaded to workers which store them in an R2 bucket. When they're downloaded,
 they're cached on cloudflare's edge network to reduce costs and make serving them faster.
 
-## Development
+### Adding cloudflare to your own repo
+
+If you already have an app using tldraw and want to use the system in this repo, you can copy and
+paste the relevant parts to your own app.
+
+To add the server to your own app, copy the contents of the [`worker`](./worker/) folder and
+[`./wrangler.toml`](./wrangler.toml) into your app. Add the dependencies from
+[`package.json`](./package.json). You can run the worker using `wrangler dev` in the same folder as
+`./wrangler.toml`.
+
+To point your existing client at the server defined in this repo, copy
+[`client/multiplayerAssetStore.tsx`](./client/multiplayerAssetStore.tsx) and
+[`client/getBookmarkPreview.tsx`](./client/getBookmarkPreview.tsx) into your app. Then, adapt the
+code from [`client/App.tsx`](./client/App.tsx) to your own app. Adapt the `/api/` URLs used in each
+of these files to point at your new `wrangler dev` server.
+
+### Deployment
+
+To deploy this example, you'll need to create a cloudflare account and create an R2 bucket to store
+uploaded images and videos. Update `bucket_name = 'tldraw-content'` in
+[`wrangler.toml`](./wrangler.toml) with the name of your new bucket.
+
+To actually deploy the app, first create a production build using `npm run build`. Then, run `npx
+wrangler deploy`. This will deploy the backend worker along with the frontend app to cloudflare.
+This should give you a workers.dev URL, but you can also [configure a custom
+domain](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### License
+
+This project is provided under the MIT license found [here](https://github.com/tldraw/tldraw-sync-cloudflare/blob/main/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
+
+### Trademarks
+
+Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
+
+### Distributions
+
+You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
+
+### Contribution
+
+Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
+
+### Community
+
+Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+### Contact
+
+Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
+
+
+---
+
+## 🚀 快速开始
+
+### Development
 
 To install dependencies, run `npm install`. To start a local development server, run `npm run dev`. This will
 start a [`vite`](https://vitejs.dev/) dev server running both your application frontend, and the
@@ -67,53 +171,9 @@ The frontend client is under [`client`](./client):
 
 To add support for custom shapes, see the [tldraw sync custom shapes docs](https://tldraw.dev/docs/sync#Custom-shapes--bindings).
 
-## Adding cloudflare to your own repo
 
-If you already have an app using tldraw and want to use the system in this repo, you can copy and
-paste the relevant parts to your own app.
+---
 
-To add the server to your own app, copy the contents of the [`worker`](./worker/) folder and
-[`./wrangler.toml`](./wrangler.toml) into your app. Add the dependencies from
-[`package.json`](./package.json). You can run the worker using `wrangler dev` in the same folder as
-`./wrangler.toml`.
+## ⚙️ 技术栈
 
-To point your existing client at the server defined in this repo, copy
-[`client/multiplayerAssetStore.tsx`](./client/multiplayerAssetStore.tsx) and
-[`client/getBookmarkPreview.tsx`](./client/getBookmarkPreview.tsx) into your app. Then, adapt the
-code from [`client/App.tsx`](./client/App.tsx) to your own app. Adapt the `/api/` URLs used in each
-of these files to point at your new `wrangler dev` server.
-
-## Deployment
-
-To deploy this example, you'll need to create a cloudflare account and create an R2 bucket to store
-uploaded images and videos. Update `bucket_name = 'tldraw-content'` in
-[`wrangler.toml`](./wrangler.toml) with the name of your new bucket.
-
-To actually deploy the app, first create a production build using `npm run build`. Then, run `npx
-wrangler deploy`. This will deploy the backend worker along with the frontend app to cloudflare.
-This should give you a workers.dev URL, but you can also [configure a custom
-domain](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
-
-## License
-
-This project is provided under the MIT license found [here](https://github.com/tldraw/tldraw-sync-cloudflare/blob/main/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
-
-## Trademarks
-
-Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
-
-## Distributions
-
-You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
-
-## Contribution
-
-Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
-
-## Community
-
-Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
-
-## Contact
-
-Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
+「待补充」

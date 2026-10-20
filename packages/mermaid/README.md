@@ -1,61 +1,26 @@
-# @tldraw/mermaid
+---
+title: "@tldraw/mermaid"
+tags:
+  - tldraw
+  - readme
+  - package
+  - mermaid
+category: packages
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 Convert [Mermaid](https://mermaid.js.org/) diagram syntax into native, editable tldraw shapes.
 
 Instead of rendering a static SVG, `@tldraw/mermaid` parses Mermaid text and creates real geo shapes, arrows, frames, and groups on the tldraw canvas — so users can move, resize, restyle, and connect them like any other shape.
 
-## Installation
-
-```bash
-npm i @tldraw/mermaid
-```
-
-**Peer dependencies:** your app must also include compatible versions of:
-
-- **`tldraw`** — the SDK this package plugs into
-- **`react`** — `^18.2.0` or `^19.2.1`
-- **`react-dom`** — `^18.2.0` or `^19.2.1`
-
-## Quick start
-
-```tsx
-import { createMermaidDiagram } from '@tldraw/mermaid'
-
-// Inside a component or callback with access to the editor:
-await createMermaidDiagram(
-	editor,
-	`
-  flowchart TD
-    A[Start] --> B{Decision}
-    B -->|Yes| C[Do something]
-    B -->|No| D[Do something else]
-`
-)
-```
-
-By default, shapes are centered on the viewport. You can control placement with `blueprintRender`:
-
-```tsx
-// Center the diagram on a specific point (default behavior)
-await createMermaidDiagram(editor, diagramText, {
-	blueprintRender: {
-		position: { x: 500, y: 300 },
-		centerOnPosition: true,
-	},
-})
-
-// Place the diagram's top-left corner at the given point
-await createMermaidDiagram(editor, diagramText, {
-	blueprintRender: {
-		position: { x: 0, y: 0 },
-		centerOnPosition: false,
-	},
-})
-```
-
-When `centerOnPosition` is `true` (the default), the diagram's center aligns with the given position. When `false`, the diagram's top-left corner aligns with it instead. If no `position` is provided, the diagram uses the viewport center — or the cursor position if the user has "paste at cursor" mode enabled.
-
-## Supported diagram types
+### Supported diagram types
 
 | Diagram type     | Mermaid keyword      | What you get                                                               |
 | ---------------- | -------------------- | -------------------------------------------------------------------------- |
@@ -73,8 +38,6 @@ await createMermaidDiagram(editor, text, {
 	},
 })
 ```
-
-## API
 
 ### `createMermaidDiagram(editor, text, options?)`
 
@@ -118,22 +81,7 @@ Helpers: **`defaultMermaidNodeRenderSpec`**, **`resolveMermaidNodeRender`**, **`
 - **`BlueprintRenderingOptions`** — position, centering, and optional `mapNodeToRenderSpec` for `renderBlueprint` / `createMermaidDiagram`.
 - **`MermaidNodeCreateFunctionArgs`** — argument object for **`defaultCreateMermaidNodeFromBlueprint`** (includes resolved **`render`** spec).
 
-## How it works
-
-The conversion happens in three stages:
-
-```mermaid
-flowchart LR
-    MermaidText["Mermaid text"] --> ParseRender["Parse and render SVG"]
-    ParseRender --> ExtractBlueprint["Extract blueprint"]
-    ExtractBlueprint --> CreateShapes["Create tldraw shapes"]
-```
-
-1. **Parse and render** — Mermaid parses the text and renders an SVG into an offscreen DOM element, giving us accurate layout positions via `getBBox()`.
-2. **Extract blueprint** — a diagram-specific converter reads positions from the SVG and semantic data from Mermaid's internal database, producing a `DiagramMermaidBlueprint`.
-3. **Create shapes** — `renderBlueprint` resolves each node’s materialization spec (mapper or default), then creates tldraw shapes (geo or custom), plus arrows, lines, frames, and groups.
-
-## Example: paste handler
+### Example: paste handler
 
 A common integration is converting Mermaid text on paste. Here's a React component that registers itself as a text content handler — based on the pattern used on [tldraw.com](https://github.com/tldraw/tldraw/blob/main/apps/dotcom/client/src/components/SneakyMermaidHandler/SneakyMermaidHandler.tsx):
 
@@ -175,40 +123,149 @@ Drop `<MermaidPasteHandler />` inside your `<Tldraw>` component and users can pa
 
 The regex above is a simplified check. On tldraw.com the detection is handled by [`simpleMermaidStringTest`](https://github.com/tldraw/tldraw/blob/main/apps/dotcom/client/src/components/SneakyMermaidHandler/simpleMermaidStringTest.ts), which also strips YAML frontmatter (`---...---`), `%%{...}%%` directives, and `%%` comments before testing for the diagram keyword — making it more robust for real-world pasted content.
 
-## Lazy loading
+### Lazy loading
 
 The `mermaid` dependency is roughly 2 MB. The paste handler above already lazy-loads with `await import('@tldraw/mermaid')` — the package is only fetched when the pasted text matches a Mermaid keyword. For your own integration, the same pattern applies: pre-screen with a lightweight regex, then dynamic-import the package only when needed.
 
-## Examples
+### Examples
 
 See the [Mermaid diagrams example](https://github.com/tldraw/tldraw/tree/main/apps/examples/src/examples/use-cases/hundred-mermaids) in the examples app for a runnable demo that renders many diagram types at once. Run it locally with `pnpm dev` from the repo root and visit `localhost:5420`.
 
-## Documentation
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+### How it works
+
+The conversion happens in three stages:
+
+```mermaid
+flowchart LR
+    MermaidText["Mermaid text"] --> ParseRender["Parse and render SVG"]
+    ParseRender --> ExtractBlueprint["Extract blueprint"]
+    ExtractBlueprint --> CreateShapes["Create tldraw shapes"]
+```
+
+1. **Parse and render** — Mermaid parses the text and renders an SVG into an offscreen DOM element, giving us accurate layout positions via `getBBox()`.
+2. **Extract blueprint** — a diagram-specific converter reads positions from the SVG and semantic data from Mermaid's internal database, producing a `DiagramMermaidBlueprint`.
+3. **Create shapes** — `renderBlueprint` resolves each node’s materialization spec (mapper or default), then creates tldraw shapes (geo or custom), plus arrows, lines, frames, and groups.
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Documentation
 
 Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
 
 For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
 
-## License
+### License
 
 This project is part of the tldraw SDK. It is provided under the [tldraw SDK license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Distributions
+### Distributions
 
 You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
+
+
+---
+
+## 🚀 快速开始
+
+### Installation
+
+```bash
+npm i @tldraw/mermaid
+```
+
+**Peer dependencies:** your app must also include compatible versions of:
+
+- **`tldraw`** — the SDK this package plugs into
+- **`react`** — `^18.2.0` or `^19.2.1`
+- **`react-dom`** — `^18.2.0` or `^19.2.1`
+
+### Quick start
+
+```tsx
+import { createMermaidDiagram } from '@tldraw/mermaid'
+
+// Inside a component or callback with access to the editor:
+await createMermaidDiagram(
+	editor,
+	`
+  flowchart TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Do something]
+    B -->|No| D[Do something else]
+`
+)
+```
+
+By default, shapes are centered on the viewport. You can control placement with `blueprintRender`:
+
+```tsx
+// Center the diagram on a specific point (default behavior)
+await createMermaidDiagram(editor, diagramText, {
+	blueprintRender: {
+		position: { x: 500, y: 300 },
+		centerOnPosition: true,
+	},
+})
+
+// Place the diagram's top-left corner at the given point
+await createMermaidDiagram(editor, diagramText, {
+	blueprintRender: {
+		position: { x: 0, y: 0 },
+		centerOnPosition: false,
+	},
+})
+```
+
+When `centerOnPosition` is `true` (the default), the diagram's center aligns with the given position. When `false`, the diagram's top-left corner aligns with it instead. If no `position` is provided, the diagram uses the viewport center — or the cursor position if the user has "paste at cursor" mode enabled.
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

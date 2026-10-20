@@ -3,20 +3,32 @@ title: Rich text with font options
 component: ./RichTextFontExtension.tsx
 priority: 20
 keywords:
-  [
-    tiptap,
-    rich text,
-    font family,
-    font size,
-    text editor,
-    custom fonts,
-    textoptions,
-    google fonts,
-    fontface,
-    addfontsfromnode,
-    typography,
-  ]
+  - tiptap
+  - rich text
+  - font family
+  - font size
+  - text editor
+  - custom fonts
+  - textoptions
+  - google fonts
+  - fontface
+  - addfontsfromnode
+  - typography
+tags:
+  - tldraw
+  - readme
+  - example
+  - shapes
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Add font family and font size selects to the rich text toolbar.
 
@@ -27,3 +39,52 @@ tldraw's rich text is built on TipTap, so it can use TipTap's `FontFamily` and `
 Fonts that aren't already on the page (Inter and Exo 2 from Google Fonts here) need two extra pieces: `options.text.addFontsFromNode` tells tldraw which `TLFontFace` a piece of text uses so it can load the font and embed it in exports, and `editor.fonts.requestFonts()` on mount preloads them so switching families doesn't flash.
 
 Try creating a text shape, selecting some text, and picking a font or size from the toolbar.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

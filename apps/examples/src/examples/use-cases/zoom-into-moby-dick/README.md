@@ -3,8 +3,30 @@ title: Zoom into Moby Dick
 component: ./ZoomIntoMobyDickExample.tsx
 priority: 2
 keywords:
-  [semantic zoom, level of detail, lod, camera, zoom steps, text, reading, summary, deep zoom]
+  - semantic zoom
+  - level of detail
+  - lod
+  - camera
+  - zoom steps
+  - text
+  - reading
+  - summary
+  - deep zoom
+tags:
+  - tldraw
+  - readme
+  - example
+  - use-cases
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Semantic zoom over a whole novel: one sentence zooms out to the whole book and in to Melville's own text.
 
@@ -14,6 +36,32 @@ Fully zoomed out, the canvas holds a single sentence summarising _Moby Dick_. Zo
 paragraph, then a page, then a chapter-by-chapter outline, then the book itself — about 208,000 words
 of it. Zooming into one corner of the paragraph opens that part of the story
 rather than the next level of the book as a whole.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
 
 ### The tree does the work
 
@@ -72,3 +120,24 @@ Only `summaries.ts` knows this is a novel. `layout.ts`, `ContentLayer.tsx` and `
 tree of strings and an optional loader for deeper text, so the same code renders a codebase, a spec or a
 contract — the one thing a corpus has to get right is that each level says several times more than the
 one above it, since that is what makes its type smaller and its handoff land.
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

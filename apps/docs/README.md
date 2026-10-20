@@ -1,4 +1,19 @@
-# tldraw-docs
+---
+title: "tldraw-docs"
+tags:
+  - tldraw
+  - readme
+  - application
+category: apps
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 Welcome to the source for the [tldraw docs site](https://tldraw.dev).
 
@@ -15,33 +30,7 @@ SOURCE_SHA=main
 
 The files are also provided in this repo.
 
-## Building the content
-
-You can build the markdown and API content using the following scripts:
-
-- `pnpm refresh-everything` to reset the database, generate the markdown from the API docs, and populate the database with articles from both the regular content and the generated API content
-- `pnpm refresh-content` to generate just the regular content
-
-# Content
-
-The docs has two types of content: regular content that is written by the team and auto-generated content that is created using [tsdoc](https://tsdoc.org/) and [API extractor](https://api-extractor.com/).
-
-The `content` folder contains all content in the form of MDX files. All articles belong to a "section" and a "category". The `sections.json` defines each section and any categories belonging to that section.
-
-A section looks like this:
-
-```json
-{
-	"id": "community",
-	"title": "Community",
-	"description": "Community resources for tldraw.",
-	"categories": []
-}
-```
-
-The content is organized into folders for each section. The `gen` folder contains auto-generated content.
-
-## Regular Content
+### Regular Content
 
 The `content` folder contains all "regular" content in the form of MDX files.All articles belong to a "section" and a "category". The content is organized into folders for each "section".
 
@@ -95,6 +84,22 @@ The `author` records who wrote the article, usually as a GitHub username. It is 
 
 The `date` is formatted as DD/MM/YYYY.
 
+### Release notes
+
+Release notes live in `content/releases/` and are the source of truth for SDK release documentation.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
 ### Status
 
 An article's `status` may be either `draft` or `published`. A `draft` article is hidden in production.
@@ -103,13 +108,10 @@ An article's `status` may be either `draft` or `published`. A `draft` article is
 
 The `keywords` are used to find an article through the site's search feature.
 
-## Auto-generated content
 
-The auto-generated docs content is created using [tsdoc](https://tsdoc.org/) and [API extractor](https://api-extractor.com/). The source is the API documentation created by `pnpm build` or `pnpm build-api`. The output is placed in the `gen` folder.
+---
 
-## Release notes
-
-Release notes live in `content/releases/` and are the source of truth for SDK release documentation.
+## 🏛️ 设计
 
 ### File structure
 
@@ -127,28 +129,82 @@ Release notes live in `content/releases/` and are the source of truth for SDK re
 
 See `skills/update-release-notes/` for the maintenance workflow and `skills/write-release-notes/` for writing guidance.
 
-## Developing the docs
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Developing the docs
 
 You'll need to install Git LFS to get our blog post images (which can be large). See instructions [here](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
 
 When developing the docs, any change to the `content` folder will cause the page to refresh. This is a little shitty but it mostly works.
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## License
+### License
 
 This project is provided under the MIT license found [here](https://github.com/tldraw/tldraw/blob/main/apps/docs/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+
+---
+
+## 🚀 快速开始
+
+### Building the content
+
+You can build the markdown and API content using the following scripts:
+
+- `pnpm refresh-everything` to reset the database, generate the markdown from the API docs, and populate the database with articles from both the regular content and the generated API content
+- `pnpm refresh-content` to generate just the regular content
+
+### Content
+
+The docs has two types of content: regular content that is written by the team and auto-generated content that is created using [tsdoc](https://tsdoc.org/) and [API extractor](https://api-extractor.com/).
+
+The `content` folder contains all content in the form of MDX files. All articles belong to a "section" and a "category". The `sections.json` defines each section and any categories belonging to that section.
+
+A section looks like this:
+
+```json
+{
+	"id": "community",
+	"title": "Community",
+	"description": "Community resources for tldraw.",
+	"categories": []
+}
+```
+
+The content is organized into folders for each section. The `gen` folder contains auto-generated content.
+
+### Auto-generated content
+
+The auto-generated docs content is created using [tsdoc](https://tsdoc.org/) and [API extractor](https://api-extractor.com/). The source is the API documentation created by `pnpm build` or `pnpm build-api`. The output is placed in the `gen` folder.
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

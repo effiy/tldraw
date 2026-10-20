@@ -2,8 +2,28 @@
 title: Clipboard events
 component: ./ClipboardEventsExample.tsx
 priority: 4
-keywords: [clipboard, copy, paste, cut, events, disable]
+keywords:
+  - clipboard
+  - copy
+  - paste
+  - cut
+  - events
+  - disable
+tags:
+  - tldraw
+  - readme
+  - example
+  - data
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Filter, transform, or block copy, cut, and paste with the clipboard hooks in `TldrawOptions`.
 
@@ -16,3 +36,52 @@ Three options let you intercept clipboard operations. They run for both keyboard
 - `onBeforePasteFromClipboard` receives the parsed `TLExternalContent` about to be applied. Return a modified content object or `false` to cancel. It only fires for clipboard paste, not for file drops or programmatic `putExternalContent` calls.
 
 Use the checkboxes in the top panel to block copy or paste, strip red shapes on copy or paste, take over raw paste, or add a 500ms delay to the hooks. The log below the controls shows each hook as it fires. Try drawing a red and a blue shape, then copying and pasting with different toggles on.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

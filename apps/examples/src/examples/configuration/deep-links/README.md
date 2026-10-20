@@ -3,17 +3,29 @@ title: Deep links
 component: ./DeepLinksExample.tsx
 priority: 4
 keywords:
-  [
-    deep links,
-    url,
-    navigation,
-    viewport,
-    search params,
-    createdeeplink,
-    navigatetodeeplink,
-    routing,
-  ]
+  - deep links
+  - url
+  - navigation
+  - viewport
+  - search params
+  - createdeeplink
+  - navigatetodeeplink
+  - routing
+tags:
+  - tldraw
+  - readme
+  - example
+  - configuration
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Keep the camera position in the URL so links open at the same view.
 
@@ -21,7 +33,40 @@ Keep the camera position in the URL so links open at the same view.
 
 Deep links are URLs that point to a specific part of a document: a viewport, a page, or a set of shapes. Try it here: create a shape, then pan or zoom. The `d` search param in the URL updates as you go, and opening that URL in a new tab returns to the same view.
 
-## The `deepLinks` option
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### The `deepLinks` option
 
 The simplest way to use deep links is the `deepLinks` key of the `Tldraw` component's `options` prop. It keeps `window.location` in sync with a search param that tldraw can navigate to, e.g. `https://my-app.com/document-name?d=v1234.-234.3.21`.
 
@@ -55,7 +100,7 @@ You can customize this behavior by passing an options object instead:
 
 For full options see the [`TLDeepLinkOptions`](?) API reference.
 
-## Handling deep links manually
+### Handling deep links manually
 
 The same functionality is exposed as methods and utilities, which gives you more control if, for example, you prefer not to use search params in the URL.
 
@@ -125,3 +170,17 @@ useEffect(() => {
 	}
 }, [editor])
 ```
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

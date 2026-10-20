@@ -2,8 +2,31 @@
 title: Map tiles
 component: ./MapTilesExample.tsx
 priority: 3
-keywords: [map, tiles, openstreetmap, mercator, geo, camera, level of detail, raster, annotation]
+keywords:
+  - map
+  - tiles
+  - openstreetmap
+  - mercator
+  - geo
+  - camera
+  - level of detail
+  - raster
+  - annotation
+tags:
+  - tldraw
+  - readme
+  - example
+  - use-cases
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Draw on a slippy map by rendering OpenStreetMap tiles beneath the canvas.
 
@@ -14,3 +37,52 @@ Page space is defined as Web Mercator world pixels at a base map zoom, which tur
 The tile layer is an `OnTheCanvas` component, so it renders inside the camera transform and beneath the shapes. Tiles are positioned in page units and the camera does the panning and scaling for free.
 
 Two constraints shape the rest, both explained where they bite in the code: the zoom range is capped to a band around the base zoom (a real map's z0 to z19 would need a camera zoom range of around 500,000x), and tiles come from OpenStreetMap's public servers, which have a usage policy attached. Swap `getTileUrl` in `TileLayer.tsx` for your own provider before pointing this at real traffic.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

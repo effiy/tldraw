@@ -1,30 +1,25 @@
-# tldraw agent
+---
+title: tldraw agent
+tags:
+  - tldraw
+  - readme
+  - template
+category: templates
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 This starter kit demonstrates how to build an agent that can manipulate the [tldraw](https://github.com/tldraw/tldraw) canvas.
 
 A chat panel on the right side of the screen lets users communicate with the agent, add context, and see chat history.
 
-## Environment setup
-
-Create a `.dev.vars` file in the root directory and add API keys for any model providers you want to use.
-
-```
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-GOOGLE_API_KEY=your_google_api_key_here
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-We recommend using Anthropic for best results. Get your API key from the [Anthropic dashboard](https://console.anthropic.com/settings/keys).
-
-## Local development
-
-Install dependencies with `npm install`.
-
-Run the development server with `npm run dev`.
-
-Open `http://localhost:5173/` in your browser to see the app.
-
-## Agent overview
+### Agent overview
 
 With its default configuration, the agent can perform the following actions:
 
@@ -51,7 +46,7 @@ To make decisions on what to do, we send the agent information from various sour
 - The history of the current session, including the user's messages and all the agent's actions.
 - Lints identifying potential issues with shapes on the canvas.
 
-## Use the agent programmatically
+### Use the agent programmatically
 
 Aside from using the chat panel UI, you can also prompt the agent programmatically.
 
@@ -78,7 +73,7 @@ The `TldrawAgent` class has additional methods:
 - `agent.reset()` - Reset the agent's chat and memory.
 - `agent.request(input)` - Send a single request to the agent and handle its response _without_ entering into an agentic loop.
 
-## Architecture overview
+### Architecture overview
 
 The agent starter is organized into three main areas:
 
@@ -86,7 +81,7 @@ The agent starter is organized into three main areas:
 - **`worker/`** - Cloudflare Worker that handles model requests and prompt building
 - **`shared/`** - Types, schemas, and utilities shared between client and worker
 
-## Customize the agent
+### Customize the agent
 
 The agent's behavior is defined in `client/modes/AgentModeDefinitions.ts`. The `AGENT_MODE_DEFINITIONS` array contains mode definitions. Each mode has two arrays:
 
@@ -109,7 +104,7 @@ Modes can be transitioned between over the course of a prompt depending on the b
 - `onPromptEnd(agent, request)` - runs when a prompt ends
 - `onPromptCancel(agent, request)` - runs when a prompt is canceled
 
-## Change what the agent can see
+### Change what the agent can see
 
 **Change what the agent can see by adding, editing or removing a prompt part.**
 
@@ -177,7 +172,7 @@ parts: [
 ]
 ```
 
-## Change what the agent can do
+### Change what the agent can do
 
 **Change what the agent can do by adding, editing or removing an agent action.**
 
@@ -246,7 +241,7 @@ actions: [
 ]
 ```
 
-## Change how actions appear in chat history
+### Change how actions appear in chat history
 
 Configure the icon and description of an action in the chat panel using the `getInfo()` method.
 
@@ -278,13 +273,13 @@ To customize an action's appearance via CSS, you can define style for the `agent
 }
 ```
 
-## Managers
+### Managers
 
 Managers are classes that encapsulate specific concerns and extend the functionality of `TldrawAgent` or `TldrawAgentApp`. Each manager handles a single responsibility—like chat history, model selection, or context management—and exposes methods to interact with that state.
 
 Managers are available as properties on the agent instance (e.g., `agent.chat`, `agent.modelName`, `agent.context`). To create a custom manager, extend `BaseAgentManager` or `BaseAgentAppManager` and add it to the agent in `client/agent/TldrawAgent.ts`.
 
-## Registering `PromptPartUtil`s and `AgentActionUtil`s
+### Registering `PromptPartUtil`s and `AgentActionUtil`s
 
 Utils use a **self-registration pattern**. When you create a new `PromptPartUtil` or `AgentActionUtil`, wrap it with a registration function:
 
@@ -365,7 +360,7 @@ Default schemas are auto-registered when exported from `AgentActionSchemas.ts`. 
 
 The system maintains two registries (default and mode-specific) and resolves the correct util/schema based on the current mode, falling back to the default when no mode-specific binding exists.
 
-## Schedule further work
+### Schedule further work
 
 Let the agent work over multiple turns by scheduling further work using the `schedule` method.
 
@@ -413,7 +408,7 @@ override applyAction(action: Streaming<EnterReviewingModeAction>){
 
 Use this for things like switching modes, or for programatically telling it to correct a mistake it's made.
 
-## Retrieve data from an external API
+### Retrieve data from an external API
 
 To retrieve information from an external API, fetch the data within `applyAction` and schedule a follow-up request with the data.
 
@@ -429,7 +424,7 @@ override async applyAction(action: Streaming<CountryInfoAction>) {
 }
 ```
 
-## Sanitize data received from the model
+### Sanitize data received from the model
 
 The model can make mistakes. Sometimes this is due to hallucinations, sometimes because the canvas changed since the model last saw it. Either way, an incoming action might contain invalid data.
 
@@ -458,7 +453,7 @@ override sanitizeAction(action: Streaming<DeleteAction>, helpers: AgentHelpers) 
 - `ensureShapeIdIsUnique` - Ensure that a shape ID is unique. Useful for creating new shapes.
 - `ensureValueIsVec`, `ensureValueIsNumber`, etc - Useful for more complex actions where the model is more likely to make mistakes.
 
-## Send positions to and from the model
+### Send positions to and from the model
 
 By default, every position sent to the model is offset by the starting position of the current chat.
 
@@ -526,7 +521,7 @@ Additional rounding helpers:
 
 - `roundBox` - Round the coordinates and dimensions of a box.
 
-## Send shapes to the model
+### Send shapes to the model
 
 The agent converts tldraw shapes to simplified formats to improve model understanding and performance.
 
@@ -564,7 +559,7 @@ override getPart(request: AgentRequest, helpers: AgentHelpers): RandomShapePart 
 }
 ```
 
-## Change the system prompt
+### Change the system prompt
 
 The system prompt lives in `worker/prompt/buildSystemPrompt.ts`. Edit the sections in `worker/prompt/sections/` to change the system prompt.
 
@@ -572,7 +567,7 @@ The system prompt is rebuilt for each step in the agentic loop depending on whic
 
 The schema showing the actions the agent can output is also automatically added to the system prompt.
 
-## Change to a different model
+### Change to a different model
 
 Set an agent's model using the `setModelName` method on the `modelName` manager.
 
@@ -582,7 +577,7 @@ agent.modelName.setModelName('gemini-3.8-flash')
 
 To change the logic for deciding which model to use for a request, you can edit `ModelNamePartUtil`.
 
-## Support a different model
+### Support a different model
 
 Add the model's definition to `AGENT_MODEL_DEFINITIONS` in `shared/models.ts`.
 
@@ -600,7 +595,91 @@ Add the model's definition to `AGENT_MODEL_DEFINITIONS` in `shared/models.ts`.
 
 Add extra setup or configuration for your provider in `worker/do/AgentService.ts`.
 
-## Support custom shapes
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### License
+
+This project is part of the tldraw SDK. It is provided under the [tldraw SDK license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
+
+You can use the tldraw SDK in commercial or non-commercial projects so long as you preserve the "Made with tldraw" watermark on the canvas. To remove the watermark, you can purchase a [business license](https://tldraw.dev/pricing). Visit [tldraw.dev](https://tldraw.dev) to learn more.
+
+### Trademarks
+
+Copyright (c) 2025-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
+
+### Distributions
+
+You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
+
+### Contribution
+
+Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
+
+### Community
+
+Have questions, comments or feedback? [Join our discord](https://discord.gg/rhsyWMUJxd). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+### Contact
+
+Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw) or email us at [mailto:hello@tldraw.com](hello@tldraw.com).
+
+
+---
+
+## 🚀 快速开始
+
+### Environment setup
+
+Create a `.dev.vars` file in the root directory and add API keys for any model providers you want to use.
+
+```
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+We recommend using Anthropic for best results. Get your API key from the [Anthropic dashboard](https://console.anthropic.com/settings/keys).
+
+### Local development
+
+Install dependencies with `npm install`.
+
+Run the development server with `npm run dev`.
+
+Open `http://localhost:5173/` in your browser to see the app.
+
+### Support custom shapes
 
 If your app includes [custom shapes](https://tldraw.dev/docs/shapes#Custom-shapes-1), the agent can see, move, delete, resize, rotate, and arrange them with no extra setup. However, you might also want to let the agent create and edit them, and read their custom properties.
 
@@ -769,28 +848,9 @@ export function convertFocusedShapeToTldrawShape(
 }
 ```
 
-## License
 
-This project is part of the tldraw SDK. It is provided under the [tldraw SDK license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
+---
 
-You can use the tldraw SDK in commercial or non-commercial projects so long as you preserve the "Made with tldraw" watermark on the canvas. To remove the watermark, you can purchase a [business license](https://tldraw.dev/pricing). Visit [tldraw.dev](https://tldraw.dev) to learn more.
+## ⚙️ 技术栈
 
-## Trademarks
-
-Copyright (c) 2025-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
-
-## Distributions
-
-You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
-
-## Contribution
-
-Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
-
-## Community
-
-Have questions, comments or feedback? [Join our discord](https://discord.gg/rhsyWMUJxd). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
-
-## Contact
-
-Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw) or email us at [mailto:hello@tldraw.com](hello@tldraw.com).
+「待补充」

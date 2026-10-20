@@ -3,18 +3,30 @@ title: UI events
 component: ./UiEventsExample.tsx
 priority: 1
 keywords:
-  [
-    ui events,
-    onUiEvent,
-    TLUiEventHandler,
-    event logging,
-    keyboard shortcuts,
-    actions,
-    tools,
-    debugging,
-    analytics,
-  ]
+  - ui events
+  - onUiEvent
+  - TLUiEventHandler
+  - event logging
+  - keyboard shortcuts
+  - actions
+  - tools
+  - debugging
+  - analytics
+tags:
+  - tldraw
+  - readme
+  - example
+  - events
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Listen to the actions the default UI performs and see which editor API each one calls.
 
@@ -28,3 +40,52 @@ API call the UI made for that event, which makes it a useful way to learn the SD
 Try selecting tools, changing styles, aligning shapes, or using undo/redo. UI events fire only for
 UI interactions; calling `editor.alignShapes()` yourself won't trigger one. For pointer and keyboard
 input see the canvas events example, and for document changes see the store events example.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

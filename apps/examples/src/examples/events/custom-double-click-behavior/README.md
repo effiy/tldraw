@@ -1,21 +1,33 @@
 ---
-title: Custom double-click behavior
+title: "Custom double-click behavior"
 component: ./CustomDoubleClickBehaviorExample.tsx
 priority: 4
 keywords:
-  [
-    double click,
-    override,
-    statenode,
-    select tool,
-    method replacement,
-    handleDoubleClickOnCanvas,
-    getStateDescendant,
-    runtime,
-    idle state,
-    createTextOnCanvasDoubleClick,
-  ]
+  - double click
+  - override
+  - statenode
+  - select tool
+  - method replacement
+  - handleDoubleClickOnCanvas
+  - getStateDescendant
+  - runtime
+  - idle state
+  - createTextOnCanvasDoubleClick
+tags:
+  - tldraw
+  - readme
+  - example
+  - events
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Replace what happens when the user double-clicks on empty canvas by patching the select tool's `Idle` state at runtime.
 
@@ -35,3 +47,52 @@ behavior without writing a whole custom tool, but `handleDoubleClickOnCanvas` is
 can be renamed or removed in any release. If you only want to disable the default, pass
 `options={{ createTextOnCanvasDoubleClick: false }}` to `<Tldraw>` instead. If you need different
 behavior, write a custom select tool.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

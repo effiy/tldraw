@@ -2,8 +2,30 @@
 title: Custom keyboard shortcuts
 component: ./KeyboardShortcutsExample.tsx
 priority: 3
-keywords: [shortcuts, hotkeys, keybindings, kbd, overrides, actions, tools, customize]
+keywords:
+  - shortcuts
+  - hotkeys
+  - keybindings
+  - kbd
+  - overrides
+  - actions
+  - tools
+  - customize
+tags:
+  - tldraw
+  - readme
+  - example
+  - ui
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Change tldraw's default keyboard shortcuts for tools and actions.
 
@@ -18,3 +40,52 @@ Try it:
 - Press `cmd+1` (or `ctrl+1`) to copy the selection as a PNG
 
 For adding shortcuts to custom tools, see the custom config example.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

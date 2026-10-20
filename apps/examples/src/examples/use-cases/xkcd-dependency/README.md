@@ -1,9 +1,29 @@
 ---
 title: Gravity sim (xkcd 2347)
 component: ./XkcdDependencyExample.tsx
-keywords: [physics, gravity, animation, fun, xkcd, rapier]
+keywords:
+  - physics
+  - gravity
+  - animation
+  - fun
+  - xkcd
+  - rapier
 priority: 10
+tags:
+  - tldraw
+  - readme
+  - example
+  - use-cases
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Rebuild the xkcd "Dependency" comic as geo shapes and drop it into a Rapier 2D physics simulation.
 
@@ -12,3 +32,52 @@ Rebuild the xkcd "Dependency" comic as geo shapes and drop it into a Rapier 2D p
 Each block in the comic is a geo shape with a matching Rapier rigid body. On every editor `tick` the world steps and awake bodies write their position and rotation back to their shapes with `editor.updateShapes`. Selected blocks become kinematic and follow the shape instead, so you can drag them; deleting a block removes its body and wakes the rest.
 
 Try pulling out the red block near the bottom and watch everything collapse, just like in the [original comic](https://xkcd.com/2347/).
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

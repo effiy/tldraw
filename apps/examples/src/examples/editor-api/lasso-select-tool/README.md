@@ -3,20 +3,32 @@ title: Lasso select tool
 component: ./LassoSelectToolExample.tsx
 priority: 3
 keywords:
-  [
-    lasso,
-    selection,
-    freehand,
-    overlays,
-    custom tool,
-    state machine,
-    atom,
-    statenode,
-    getstrokepoints,
-    getsvgpathfromstrokepoints,
-    overlayutil,
-  ]
+  - lasso
+  - selection
+  - freehand
+  - overlays
+  - custom tool
+  - state machine
+  - atom
+  - statenode
+  - getstrokepoints
+  - getsvgpathfromstrokepoints
+  - overlayutil
+tags:
+  - tldraw
+  - readme
+  - example
+  - editor-api
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Select shapes by drawing a freehand lasso around them with a custom tool and a canvas overlay.
 
@@ -27,3 +39,52 @@ The tool is a `StateNode` with an `idle` child and a `lassoing` child. While las
 On pointer up, the tool selects every shape whose page-space vertices are all inside the lasso polygon (`pointInPolygon`) and whose outline does not cross the lasso (`polygonsIntersect`), then switches back to the select tool.
 
 Press `W` or pick the lasso from the toolbar, then drag a loop around some shapes. Only shapes fully enclosed by the loop are selected.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

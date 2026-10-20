@@ -1,3 +1,20 @@
+---
+title: Image Pipeline
+tags:
+  - tldraw
+  - readme
+  - template
+category: templates
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
+
 <div alt style="text-align: center; transform: scale(.5);">
 	<picture>
 		<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tldraw/tldraw/main/assets/github-hero-dark.png" />
@@ -7,25 +24,39 @@
 
 This starter kit builds a visual node-graph editor for AI image generation pipelines on top of [tldraw](https://github.com/tldraw/tldraw). Users place nodes on an infinite canvas, wire up typed ports, and run the graph to generate images — similar to ComfyUI, but built with React and tldraw.
 
-## Environment setup
+### Deployment
 
-Create a `.dev.vars` file in the root directory and add your Replicate API key:
+This template uses a [Cloudflare Worker](https://developers.cloudflare.com/workers/) backend with [R2](https://developers.cloudflare.com/r2/) for image storage.
 
+To deploy, create an R2 bucket and deploy the worker:
+
+```bash
+npx wrangler r2 bucket create image-pipeline
+npx wrangler secret put REPLICATE_API_TOKEN
+npm run build
+npx wrangler deploy
 ```
-REPLICATE_API_TOKEN=your_replicate_api_token_here
-```
 
-Without a token, generation requests will fail with an error.
 
-## Local development
+---
 
-Install dependencies with `npm install`.
+## ⚡ 功能
 
-Run the development server with `npm run dev`.
+「待补充」
 
-Open `http://localhost:5173/` in your browser to see the app.
 
-## How it works
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+### How it works
 
 This starter kit has 3 main concepts:
 
@@ -43,7 +74,7 @@ There are lots of useful interactions the user can take involving these concepts
 
 The app automatically detects groups of connected nodes and draws region overlays around them with play/stop controls. Each node also has a "play from here" button. The execution engine traverses the graph as a DAG, resolving dependencies and running nodes in order.
 
-## File structure
+### File structure
 
 - **`src/App.tsx`:** The main entry-point. Renders the `<Tldraw />` component with custom shape utils, a sidebar, and a default starter pipeline (Model → Prompt → Generate → Preview).
 - **`src/nodes`:** Everything related to nodes.
@@ -74,41 +105,70 @@ The app automatically detects groups of connected nodes and draws region overlay
   - **`worker/routes/`:** Route handlers for generate, upscale, style transfer, IP adapter, text generation, and image storage.
   - **`worker/providers/`:** Provider abstractions for Replicate API calls.
 
-## Deployment
 
-This template uses a [Cloudflare Worker](https://developers.cloudflare.com/workers/) backend with [R2](https://developers.cloudflare.com/r2/) for image storage.
+---
 
-To deploy, create an R2 bucket and deploy the worker:
+## 📁 目录
 
-```bash
-npx wrangler r2 bucket create image-pipeline
-npx wrangler secret put REPLICATE_API_TOKEN
-npm run build
-npx wrangler deploy
-```
+「待补充」
 
-## License
+
+---
+
+## 🔗 资源
+
+### License
 
 This project is part of the tldraw SDK. It is provided under the [tldraw SDK license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
 You can use the tldraw SDK in commercial or non-commercial projects so long as you preserve the "Made with tldraw" watermark on the canvas. To remove the watermark, you can purchase a [business license](https://tldraw.dev/pricing). Visit [tldraw.dev](https://tldraw.dev) to learn more.
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2025-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Distributions
+### Distributions
 
 You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
 
-## Contribution
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.gg/rhsyWMUJxd). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw) or email us at [mailto:hello@tldraw.com](hello@tldraw.com).
+
+
+---
+
+## 🚀 快速开始
+
+### Environment setup
+
+Create a `.dev.vars` file in the root directory and add your Replicate API key:
+
+```
+REPLICATE_API_TOKEN=your_replicate_api_token_here
+```
+
+Without a token, generation requests will fail with an error.
+
+### Local development
+
+Install dependencies with `npm install`.
+
+Run the development server with `npm run dev`.
+
+Open `http://localhost:5173/` in your browser to see the app.
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

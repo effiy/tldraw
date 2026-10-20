@@ -2,20 +2,32 @@
 title: Globs
 component: ./GlobsExample.tsx
 keywords:
-  [
-    custom shape,
-    custom tool,
-    bindings,
-    bindingutil,
-    handles,
-    custom handles,
-    statenode,
-    vector editor,
-    bezier,
-    tension handles,
-  ]
+  - custom shape
+  - custom tool
+  - bindings
+  - bindingutil
+  - handles
+  - custom handles
+  - statenode
+  - vector editor
+  - bezier
+  - tension handles
 priority: 30
+tags:
+  - tldraw
+  - readme
+  - example
+  - shapes
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 A vector editor built from globs: skins stretched between circular nodes and edited with handles.
 
@@ -33,3 +45,52 @@ Shortcuts:
 - Hold cmd while dragging a tension handle to move its opposite handle too.
 - Hold cmd and shift to drag all four tension handles on a glob together.
 - Hold space to preview the glob filled.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

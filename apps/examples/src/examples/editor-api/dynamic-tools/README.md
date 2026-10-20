@@ -3,8 +3,29 @@ title: Dynamic tools with setTool and removeTool
 component: ./DynamicToolsExample.tsx
 priority: 2
 keywords:
-  [settool, removetool, dynamic tools, runtime, conditional, permissions, feature flags, toolbar]
+  - settool
+  - removetool
+  - dynamic tools
+  - runtime
+  - conditional
+  - permissions
+  - feature flags
+  - toolbar
+tags:
+  - tldraw
+  - readme
+  - example
+  - editor-api
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Add and remove a tool from the editor and toolbar at runtime with `setTool` and `removeTool`.
 
@@ -13,3 +34,52 @@ Add and remove a tool from the editor and toolbar at runtime with `setTool` and 
 Tools are normally passed to `<Tldraw>` once via the `tools` prop. `editor.setTool(Tool)` and `editor.removeTool(Tool)` let you add and remove tools from the state chart after the editor has mounted, which is useful for permission checks, feature flags, or plugin-style features.
 
 The example adds a heart-stamp tool that isn't installed initially. Click "Add heart tool" to install it (it appears in the toolbar and can be selected with `y`), stamp a few hearts, then click "Remove heart tool" to take it away again. Notice that the toolbar entry is driven by a small atom rather than React state, so the `components` object stays stable.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

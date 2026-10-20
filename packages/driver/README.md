@@ -1,14 +1,78 @@
-# @tldraw/driver
+---
+title: "@tldraw/driver"
+tags:
+  - tldraw
+  - readme
+  - package
+  - driver
+category: packages
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 Imperative API for driving the tldraw editor programmatically. Useful for scripting, automation, REPL usage, and testing.
 
-## Installation
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Documentation
+
+Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
+
+For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
+
+### License
+
+See [LICENSE.md](../../LICENSE.md).
+
+
+---
+
+## 🚀 快速开始
+
+### Installation
 
 ```bash
 npm install @tldraw/driver
 ```
 
-## Quick start
+### Quick start
 
 ```ts
 import { Driver } from '@tldraw/driver'
@@ -40,11 +104,7 @@ driver.wheel(0, -100)
 driver.dispose()
 ```
 
-## API
-
-### Constructor
-
-#### `new Driver(editor: Editor)`
+### `new Driver(editor: Editor)`
 
 Wraps an existing `Editor` instance. All methods use only public Editor APIs.
 
@@ -114,12 +174,9 @@ These methods work in page coordinates and handle the screen-space conversion in
 | ----------- | -------------------------------------------- |
 | `dispose()` | Remove side-effect handlers. Call when done. |
 
-## Documentation
 
-Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
+---
 
-For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
+## ⚙️ 技术栈
 
-## License
-
-See [LICENSE.md](../../LICENSE.md).
+「待补充」

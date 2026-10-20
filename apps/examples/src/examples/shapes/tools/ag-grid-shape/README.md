@@ -2,20 +2,32 @@
 title: Data grid shape
 component: ./DataGridExample.tsx
 keywords:
-  [
-    custom shape,
-    shapeutil,
-    baseboxshapeutil,
-    ag grid,
-    data grid,
-    table,
-    spreadsheet,
-    canedit,
-    canscroll,
-    usedelaysvgexport,
-  ]
+  - custom shape
+  - shapeutil
+  - baseboxshapeutil
+  - ag grid
+  - data grid
+  - table
+  - spreadsheet
+  - canedit
+  - canscroll
+  - usedelaysvgexport
 priority: 5
+tags:
+  - tldraw
+  - readme
+  - example
+  - shapes
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Embed an AG Grid data table inside a custom shape.
 
@@ -26,3 +38,52 @@ The `AgGridShapeUtil` extends `BaseBoxShapeUtil` and renders an `AgGridReact` co
 Because AG Grid renders asynchronously, the shape uses `useDelaySvgExport` and resolves it from `onGridReady`, so exporting the shape as an image waits until the rows are actually on screen.
 
 Try double-clicking the grid, then sorting a column or typing in a filter. Press Escape to leave editing mode and drag the shape around like any other.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

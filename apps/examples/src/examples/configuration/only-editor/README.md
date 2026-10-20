@@ -3,8 +3,30 @@ title: Minimal
 component: ./OnlyEditorExample.tsx
 priority: 100
 keywords:
-  [tldraweditor, minimal, bare bones, custom ui, no ui, headless, shapeutils, tools, statenodeonly]
+  - tldraweditor
+  - minimal
+  - bare bones
+  - custom ui
+  - no ui
+  - headless
+  - shapeutils
+  - tools
+  - statenodeonly
+tags:
+  - tldraw
+  - readme
+  - example
+  - configuration
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Use `TldrawEditor` on its own with one custom shape and one custom tool, and no UI.
 
@@ -15,3 +37,52 @@ Use `TldrawEditor` on its own with one custom shape and one custom tool, and no 
 Double-click the canvas to create a box, double-click a box to delete it, click or shift-click to select, and drag to move. `MicroSelectTool.ts` in the same folder shows an even smaller select tool with no child states; it isn't used by the example but is a good starting point for reading.
 
 For a fuller custom shape and tool, see the custom config example. For the pieces the `Tldraw` component adds on top of `TldrawEditor`, see the sublibraries example.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

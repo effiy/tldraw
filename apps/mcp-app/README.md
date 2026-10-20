@@ -1,8 +1,46 @@
-# tldraw MCP app
+---
+title: tldraw MCP app
+tags:
+  - tldraw
+  - readme
+  - application
+category: apps
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 This is the tldraw MCP app. It exposes an interactive tldraw canvas to AI agents via the [Model Context Protocol app specification](https://github.com/modelcontextprotocol/ext-apps/), so you can work in tldraw with agents in any MCP client that supports the MCP app spec.
 
-## Architecture
+### Session storage lifecycle
+
+Each MCP session is a `TldrawMCP` Durable Object. It keeps up to `MAX_CHECKPOINTS` (50) canvas snapshots and destroys itself after `IDLE_TTL_MS` (7 days) without a checkpoint save — a schedule armed in `init()` and re-armed on every check.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+### Architecture
 
 The app has two parts: a **server** and a **widget**.
 
@@ -23,14 +61,14 @@ The widget is a React app (`src/widget/mcp-app.tsx`) that renders a full tldraw 
 
 When the AI calls `exec`, the server creates a pending request and the widget picks it up, runs the code through a focused editor proxy (`src/widget/focused/`) that translates between an AI-friendly shape format (simple string IDs, flat `_type` shapes) and tldraw's internal `TLShape`/`TLShapeId` types, then calls `_exec_callback` to resolve the pending request with the result. Canvas state is checkpointed to the Durable Object's SQLite database and to the browser's local storage.
 
-## Developing
-
 ### Prerequisites
 
 The widget build depends on generated files (`editor-api.json`, `method-map.json`) that are extracted from the editor's TypeScript declarations. Before you can develop or build the mcp-app, you need to build the core packages first:
 
 ```bash
-# from the repo root
+
+### from the repo root
+
 pnpm build
 ```
 
@@ -128,14 +166,36 @@ Because the hostname is stable per user, you only add the app in ChatGPT once �
 
 Reconnecting the server after changes is the most reliable way to pick up new code, especially when the widget HTML changes.
 
-## Session storage lifecycle
 
-Each MCP session is a `TldrawMCP` Durable Object. It keeps up to `MAX_CHECKPOINTS` (50) canvas snapshots and destroys itself after `IDLE_TTL_MS` (7 days) without a checkpoint save — a schedule armed in `init()` and re-armed on every check.
+---
 
-## Contact
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

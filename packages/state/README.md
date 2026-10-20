@@ -1,18 +1,38 @@
-# @tldraw/state
+---
+title: "@tldraw/state"
+tags:
+  - tldraw
+  - readme
+  - package
+  - state
+category: packages
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 `@tldraw/state` is a powerful and lightweight TypeScript library for managing reactive state using signals. It provides fine-grained reactive primitives that automatically track dependencies and efficiently update only what needs to change.
 
 `@tldraw/state` powers the reactive system at the heart of [tldraw](https://www.tldraw.com), handling everything from canvas updates to collaborative state synchronization. It's designed to work seamlessly with [@tldraw/store](https://github.com/tldraw/tldraw/tree/main/packages/store) and has optional [React bindings](https://github.com/tldraw/tldraw/tree/main/packages/state-react).
 
-## Documentation
 
-Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
+---
 
-For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
+## ⚡ 功能
 
-A `DOCS.md` file is included alongside this README in the published package, with detailed API documentation and usage examples.
+「待补充」
 
-## Why @tldraw/state?
+
+---
+
+## 📊 指标
+
+### Why @tldraw/state?
 
 - **Fine-grained reactivity** - Only re-runs computations when their actual dependencies change
 - **High performance** - Lazy evaluation and efficient dependency tracking
@@ -23,13 +43,99 @@ A `DOCS.md` file is included alongside this README in the published package, wit
 
 Perfect for building reactive UIs, real-time collaborative apps, and complex state machines where performance and predictability matter.
 
-## Installation
+
+---
+
+## 🏛️ 设计
+
+### Examples & patterns
+
+Looking for more examples? Check out:
+
+- [tldraw SDK examples](https://github.com/tldraw/tldraw/tree/main/apps/examples) - Real-world usage in tldraw applications
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Documentation
+
+Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
+
+For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
+
+A `DOCS.md` file is included alongside this README in the published package, with detailed API documentation and usage examples.
+
+### API reference
+
+For complete API documentation, see [DOCS.md](./DOCS.md).
+
+### Core functions
+
+- `atom(name, initialValue, options?)` - Create a reactive state container
+- `computed(name, computeFn, options?)` - Create a derived value
+- `react(name, effectFn, options?)` - Create a side effect
+- `transact(fn)` - Batch state updates
+
+### Class-based APIs
+
+- `@computed` - Decorator for computed class properties
+
+### Advanced
+
+- `reactor(name, effectFn)` - Create a controllable reaction
+- `unsafe__withoutCapture(fn)` - Read state without creating dependencies
+- `whyAmIRunning()` - Debug what triggered an update
+- `getComputedInstance(obj, prop)` - Get underlying computed instance
+- `signal.getDiffSince(epoch)` - Get the diffs recorded since an epoch (see `signal.lastChangedEpoch`)
+
+### Related packages
+
+- **[@tldraw/state-react](../state-react)** - React bindings for @tldraw/state
+- **[@tldraw/store](../store)** - Record storage built on @tldraw/state
+- **[@tldraw/editor](../editor)** - The tldraw canvas editor
+- **[@tldraw/tldraw](../tldraw)** - Complete tldraw UI components
+
+### Contributing
+
+Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
+
+### License
+
+This project is licensed under the MIT License found [here](https://github.com/tldraw/tldraw/blob/main/packages/state/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
+
+### Trademarks
+
+Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
+
+### Contact
+
+Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw). You can contact us by email at [hello@tldraw.com](mailto:hello@tldraw.com).
+
+### Community
+
+Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+
+---
+
+## 🚀 快速开始
+
+### Installation
 
 ```bash
 npm install @tldraw/state
 ```
 
-## Quick start
+### Quick start
 
 ```ts
 import { atom, computed, react } from '@tldraw/state'
@@ -56,8 +162,6 @@ name.set('tldraw')
 count.set(42)
 // Logs: "Hello, tldraw! Count: 42"
 ```
-
-## Core concepts
 
 ### Atoms - state containers
 
@@ -143,8 +247,6 @@ transact(() => {
 // Logs: "(10, 20)"
 ```
 
-## Advanced features
-
 ### History and diffs
 
 Track changes over time so that dependents can update incrementally instead of recomputing from scratch:
@@ -195,8 +297,6 @@ react('debug-reaction', () => {
 })
 ```
 
-## Integration examples
-
 ### With tldraw SDK
 
 ```ts
@@ -238,58 +338,9 @@ const Counter = track(function Counter() {
 })
 ```
 
-## API reference
 
-For complete API documentation, see [DOCS.md](./DOCS.md).
+---
 
-### Core functions
+## ⚙️ 技术栈
 
-- `atom(name, initialValue, options?)` - Create a reactive state container
-- `computed(name, computeFn, options?)` - Create a derived value
-- `react(name, effectFn, options?)` - Create a side effect
-- `transact(fn)` - Batch state updates
-
-### Class-based APIs
-
-- `@computed` - Decorator for computed class properties
-
-### Advanced
-
-- `reactor(name, effectFn)` - Create a controllable reaction
-- `unsafe__withoutCapture(fn)` - Read state without creating dependencies
-- `whyAmIRunning()` - Debug what triggered an update
-- `getComputedInstance(obj, prop)` - Get underlying computed instance
-- `signal.getDiffSince(epoch)` - Get the diffs recorded since an epoch (see `signal.lastChangedEpoch`)
-
-## Related packages
-
-- **[@tldraw/state-react](../state-react)** - React bindings for @tldraw/state
-- **[@tldraw/store](../store)** - Record storage built on @tldraw/state
-- **[@tldraw/editor](../editor)** - The tldraw canvas editor
-- **[@tldraw/tldraw](../tldraw)** - Complete tldraw UI components
-
-## Examples & patterns
-
-Looking for more examples? Check out:
-
-- [tldraw SDK examples](https://github.com/tldraw/tldraw/tree/main/apps/examples) - Real-world usage in tldraw applications
-
-## Contributing
-
-Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
-
-## License
-
-This project is licensed under the MIT License found [here](https://github.com/tldraw/tldraw/blob/main/packages/state/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
-
-## Trademarks
-
-Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
-
-## Contact
-
-Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw). You can contact us by email at [hello@tldraw.com](mailto:hello@tldraw.com).
-
-## Community
-
-Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+「待补充」

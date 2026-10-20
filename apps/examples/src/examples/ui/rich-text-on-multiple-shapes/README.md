@@ -3,19 +3,31 @@ title: Format rich text on multiple shapes
 component: ./RichTextFormatOnMultipleShapesExample.tsx
 priority: 0.5
 keywords:
-  [
-    rich text,
-    formatting,
-    batch edit,
-    multiple shapes,
-    style panel,
-    bold,
-    marks,
-    programmatic formatting,
-    tlrichtext,
-    document traversal,
-  ]
+  - rich text
+  - formatting
+  - batch edit
+  - multiple shapes
+  - style panel
+  - bold
+  - marks
+  - programmatic formatting
+  - tlrichtext
+  - document traversal
+tags:
+  - tldraw
+  - readme
+  - example
+  - ui
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Add a style panel button that bolds (or unbolds) all the text in every selected shape at once.
 
@@ -26,3 +38,52 @@ Rich text in tldraw is a TipTap (ProseMirror) JSON document stored in `shape.pro
 The button lives in a custom `StylePanel` that wraps `DefaultStylePanel`. It reads the selection with `useValue`, so it enables itself whenever any selected shape has rich text and shows as active when every text node is already bold. Try selecting a mix of text, geo, and note shapes and toggling the button.
 
 For the same idea built on ProseMirror's `Node` API (bold, italic, and highlight, including shapes nested inside frames and groups), see the [text mass style updates](https://tldraw.dev/examples/text-mass-style-updates) example.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

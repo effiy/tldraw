@@ -169,7 +169,7 @@ Store and schema:
 - Skill folders use `skill-name/SKILL.md` with YAML frontmatter containing at least `name` and `description`.
 - Put reusable scripts, references, and assets inside the relevant skill folder.
 - Do not duplicate skill content for different agents; add compatibility pointers or symlinks instead.
-- See `skills/skill-creator/` before creating or restructuring skills.
+- See `skills/rui/` before creating or restructuring skills.
 - User-facing workflow skills include `skills/pr/`, `skills/issue/`, `skills/take/`, `skills/commit-changes/`, and `skills/clean-copy/`.
 
 ## Code conventions

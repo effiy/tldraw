@@ -2,8 +2,29 @@
 title: Focus the editor
 component: ./EditorFocusExample.tsx
 priority: 2
-keywords: [focus, blur, autofocus, keyboard shortcuts, multiple editors, scrolling, instance state]
+keywords:
+  - focus
+  - blur
+  - autofocus
+  - keyboard shortcuts
+  - multiple editors
+  - scrolling
+  - instance state
+tags:
+  - tldraw
+  - readme
+  - example
+  - editor-api
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Control the editor's focus with `focus()`, `blur()`, and `autoFocus` to gate keyboard shortcuts and scroll capture.
 
@@ -12,3 +33,52 @@ Control the editor's focus with `focus()`, `blur()`, and `autoFocus` to gate key
 The editor's focus decides whether its keyboard shortcuts respond and whether wheel events pan the canvas. It is related to, but not the same as, the browser's notion of focus (the document's [active element](https://developer.mozilla.org/en-US/docs/Web/API/Document/activeElement)). The browser's focus can't be relied on for this: iframes aren't descendants of their parents, and many menus are portalled elsewhere in the document, so checking whether the active element is inside the `Tldraw` element isn't reliable.
 
 That leaves focus management to you, especially with more than one editor on a page. This example mounts the editor with `autoFocus={false}` and drives focus with `editor.focus()` and `editor.blur()` from a checkbox that stays in sync via `editor.getIsFocused()`. Try typing in the text input while the editor is focused (shortcuts shouldn't fire), and toggle the checkbox to see scrolling switch between the page and the canvas.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」

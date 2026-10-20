@@ -1,76 +1,26 @@
-# @tldraw/store
+---
+title: "@tldraw/store"
+tags:
+  - tldraw
+  - readme
+  - package
+  - store
+category: packages
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+## 💡 概述
 
 `@tldraw/store` is a library for creating and managing data. In this library, a "record" is an object that is stored under a typed id.
 
 `@tldraw/store` is used by [tldraw](https://www.tldraw.com) to store its data. It is designed to be used with [@tldraw/state](https://github.com/tldraw/tldraw/tree/main/packages/state).
 
-## Documentation
-
-Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
-
-For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
-
-A `DOCS.md` file is included alongside this README in the published package, with detailed API documentation and usage examples.
-
-# Usage
-
-First create types for your records.
-
-```ts
-interface Book extends BaseRecord<'book'> {
-	title: string
-	author: ID<Author>
-	numPages: number
-}
-
-interface Author extends BaseRecord<'author'> {
-	name: string
-	isPseudonym: boolean
-}
-```
-
-Then create your `RecordType` instances.
-
-```ts
-const Book = createRecordType<Book>('book')
-
-const Author = createRecordType<Author>('author').withDefaultProperties(() => ({
-	isPseudonym: false,
-}))
-```
-
-Then create your `RecordStore` instance.
-
-```ts
-const store = new RecordStore<Book | Author>()
-```
-
-Then you can create records, add them to the store, update, and remove them.
-
-```ts
-const tolkeinId = Author.createId('tolkein')
-
-store.put([
-	Author.create({
-		id: tolkeinId,
-		name: 'J.R.R Tolkein',
-	}),
-])
-
-store.update(tolkeinId, (author) => ({
-	...author,
-	name: 'DJJ Tolkz',
-	isPseudonym: true,
-}))
-
-store.remove(tolkeinId)
-```
-
----
-
-# API
-
-## `RecordStore`
+### `RecordStore`
 
 The `RecordStore` class is the main class of the library.
 
@@ -177,29 +127,7 @@ Add a new listener to the store. The store will call the function each time the 
 store.listen((entry) => doSomethingWith(entry))
 ```
 
-### `mergeRemoteChanges(fn: () => void): void`
-
-Merge changes from a remote source without triggering listeners.
-
-```ts
-store.mergeRemoteChanges(() => {
-	store.put(recordsFromRemoteSource)
-})
-```
-
-### `createDerivationCache(name: string, derive: ((record: R) => R | undefined)): DerivationCache<R>`
-
-Create a new derivation cache.
-
-```ts
-const derivationCache = createDerivationCache('popular_authors', (record) => {
-	return record.popularity > 62 ? record : undefined
-})
-```
-
----
-
-## `RecordType`
+### `RecordType`
 
 The `RecordType` class is used to define the structure of a record.
 
@@ -275,11 +203,9 @@ const youngLivingAuthor = new RecordType('author', () => ({ age: 28, living: tru
 const oldDeadAuthor = recordType.withDefaultProperties({ age: 93, living: false })
 ```
 
-## `RecordStoreQueries`
+### `RecordStoreQueries`
 
 TODO
-
-## Helpers
 
 ### `executeQuery`
 
@@ -315,8 +241,6 @@ assertIdType(id, recordType)
 
 ---
 
-## Types
-
 ### `ID`
 
 A type used to represent a record's id.
@@ -345,22 +269,153 @@ A diff describing the changes to a record.
 
 A diff describing the changes to a collection.
 
-## Contribution
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+### Documentation
+
+Documentation for the most recent release can be found on [tldraw.dev/docs](https://tldraw.dev/docs), including [reference docs](https://tldraw.dev/reference/editor/Editor). Our release notes can be found [here](https://tldraw.dev/releases).
+
+For more agent-friendly docs, see our [LLMs.txt](https://tldraw.dev/llms.txt).
+
+A `DOCS.md` file is included alongside this README in the published package, with detailed API documentation and usage examples.
+
+### Usage
+
+First create types for your records.
+
+```ts
+interface Book extends BaseRecord<'book'> {
+	title: string
+	author: ID<Author>
+	numPages: number
+}
+
+interface Author extends BaseRecord<'author'> {
+	name: string
+	isPseudonym: boolean
+}
+```
+
+Then create your `RecordType` instances.
+
+```ts
+const Book = createRecordType<Book>('book')
+
+const Author = createRecordType<Author>('author').withDefaultProperties(() => ({
+	isPseudonym: false,
+}))
+```
+
+Then create your `RecordStore` instance.
+
+```ts
+const store = new RecordStore<Book | Author>()
+```
+
+Then you can create records, add them to the store, update, and remove them.
+
+```ts
+const tolkeinId = Author.createId('tolkein')
+
+store.put([
+	Author.create({
+		id: tolkeinId,
+		name: 'J.R.R Tolkein',
+	}),
+])
+
+store.update(tolkeinId, (author) => ({
+	...author,
+	name: 'DJJ Tolkz',
+	isPseudonym: true,
+}))
+
+store.remove(tolkeinId)
+```
+
+---
+
+### Contribution
 
 Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-## License
+### License
 
 This project is licensed under the MIT License found [here](https://github.com/tldraw/tldraw/blob/main/packages/store/LICENSE.md). The tldraw SDK is provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/main/LICENSE.md).
 
-## Trademarks
+### Trademarks
 
 Copyright (c) 2024-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
 
-## Contact
+### Contact
 
 Find us on Twitter/X at [@tldraw](https://twitter.com/tldraw).
 
-## Community
+### Community
 
 Have questions, comments or feedback? [Join our discord](https://discord.tldraw.com/?utm_source=github&utm_medium=readme&utm_campaign=sociallink). For the latest news and release notes, visit [tldraw.dev](https://tldraw.dev).
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+### `mergeRemoteChanges(fn: () => void): void`
+
+Merge changes from a remote source without triggering listeners.
+
+```ts
+store.mergeRemoteChanges(() => {
+	store.put(recordsFromRemoteSource)
+})
+```
+
+### `createDerivationCache(name: string, derive: ((record: R) => R | undefined)): DerivationCache<R>`
+
+Create a new derivation cache.
+
+```ts
+const derivationCache = createDerivationCache('popular_authors', (record) => {
+	return record.popularity > 62 ? record : undefined
+})
+```
+
+---

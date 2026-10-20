@@ -1,9 +1,33 @@
 ---
 title: Custom asset type
 component: ./CustomAssetTypeExample.tsx
-keywords: [asset, assetutil, custom, file, upload, drag, drop, pdf, document, non-media]
+keywords:
+  - asset
+  - assetutil
+  - custom
+  - file
+  - upload
+  - drag
+  - drop
+  - pdf
+  - document
+  - non-media
 priority: 4
+tags:
+  - tldraw
+  - readme
+  - example
+  - data
+category: examples
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
 ---
+
+## 💡 概述
 
 Accept non-media files like PDFs and CSVs by pairing a custom `AssetUtil` with a shape that displays them.
 
@@ -12,3 +36,52 @@ Accept non-media files like PDFs and CSVs by pairing a custom `AssetUtil` with a
 Out of the box, dropping a PDF or text file on the canvas does nothing because no asset type claims those MIME types. This example adds a `file` asset type with a `FileAssetUtil` that declares its supported MIME types and converts a dropped `File` into an asset record. A `FileCardShapeUtil` lists `file` in its `handledAssetTypes` and implements `createShapeForAsset`, so the editor knows to render a card for each uploaded file.
 
 Try dragging a `.pdf`, `.txt`, `.csv`, `.json`, `.zip`, or `.xml` file onto the canvas. The default asset store inlines the file as a data URL, so the card's filename becomes a link you can open.
+
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+
+---
+
+## 📊 指标
+
+「待补充」
+
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+
+---
+
+## 📁 目录
+
+「待补充」
+
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+
+---
+
+## 🚀 快速开始
+
+「待补充」
+
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
