@@ -19,9 +19,9 @@ import {
 	renderTldrawComponentWithEditor,
 } from '../testutils/renderTldrawComponent'
 
-// These kbds are intentionally not registered in the shortcut registry, they're handled by
-// useNativeClipboardEvents / the upload asset action instead. See SKIP_KBDS in useKeyboardShortcuts.
-const SKIP_KBDS = ['copy', 'cut', 'paste', 'asset']
+// These kbds are intentionally not registered from their action. See SKIP_KBDS in
+// useKeyboardShortcuts for the alternate handler for each one.
+const SKIP_KBDS = ['copy', 'cut', 'paste', 'asset', 'group', 'frame-selection']
 
 // Shortcuts that have a kbd but intentionally don't get their own row in the default keyboard
 // shortcuts dialog. If you add a shortcut that should be visible to users, add it to

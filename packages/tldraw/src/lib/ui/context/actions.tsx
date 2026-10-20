@@ -702,6 +702,7 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				id: 'group',
 				isEnabled: (editor) => editor.isIn('select') && isGroupAllowed(editor),
 				label: 'action.group',
+				kbd: 'cmd+g,ctrl+g',
 				icon: 'group',
 				onSelect: groupSelectedShapes,
 			},
@@ -720,6 +721,7 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				id: 'frame-selection',
 				isEnabled: (editor) => editor.isIn('select') && canFrameSelection(editor),
 				label: 'action.frame-selection',
+				kbd: 'cmd+alt+g,ctrl+alt+g',
 				onSelect: frameSelectedShapes,
 			},
 			{

@@ -10,6 +10,7 @@ import { TldrawUiMenuContextProvider } from '../../lib/ui/components/primitives/
 import { TldrawUiToolbar } from '../../lib/ui/components/primitives/TldrawUiToolbar'
 import { TLUiActionItem } from '../../lib/ui/context/actions'
 import { useSomeActionsEnabled } from '../../lib/ui/hooks/useActionState'
+import { kbdStr } from '../../lib/ui/kbd-utils'
 import { TLUiOverrides } from '../../lib/ui/overrides'
 import { renderTldrawComponentWithEditor } from '../testutils/renderTldrawComponent'
 
@@ -34,6 +35,12 @@ const overrides: TLUiOverrides = {
 			onSelect() {},
 		}
 		actions['group-spread'] = { ...actions['group'], id: 'group-spread', onSelect() {} }
+		actions['frame-spread'] = {
+			...actions['frame-selection'],
+			id: 'frame-spread',
+			icon: 'group',
+			onSelect() {},
+		}
 		actions['group-replaced'] = {
 			id: 'group-replaced',
 			label: 'action.group',
@@ -93,6 +100,19 @@ describe('TldrawUiMenuActionItem', () => {
 	it('keeps actions without isEnabled enabled', async () => {
 		await setup(<TldrawUiMenuActionItem actionId="ungated" whenDisabled="hide" />)
 		expect(button('ungated')!.disabled).toBe(false)
+	})
+
+	it('shows toggle shortcuts on the semantic group and frame actions', async () => {
+		await setup(
+			<>
+				<TldrawUiMenuActionItem actionId="group" />
+				<TldrawUiMenuActionItem actionId="frame-spread" />
+			</>
+		)
+		expect(button('group')!.getAttribute('aria-label')).toContain(kbdStr('cmd+g,ctrl+g'))
+		expect(button('frame-spread')!.getAttribute('aria-label')).toContain(
+			kbdStr('cmd+alt+g,ctrl+alt+g')
+		)
 	})
 
 	it('ORs an explicit disabled prop with isEnabled', async () => {

@@ -30,6 +30,9 @@ const SKIP_KBDS = [
 	'paste',
 	// There's also an upload asset action, so we don't want to set the kbd twice
 	'asset',
+	// Their chords are registered by toggle actions; keeping kbd here lets menus display them.
+	'group',
+	'frame-selection',
 ]
 
 /** @public */
