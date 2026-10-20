@@ -236,17 +236,18 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				})
 		}
 
+		const finalActions: { current?: TLUiActionsContextType } = {}
+
 		function getGroupToggleAction(editor: Editor): 'group' | 'ungroup' | null {
 			const onlySelectedShape = editor.getOnlySelectedShape()
-			if (onlySelectedShape && editor.isShapeOfType(onlySelectedShape, 'group')) {
-				return isUngroupAllowed(editor) ? 'ungroup' : null
-			}
-			return isGroupAllowed(editor) ? 'group' : null
+			const action =
+				onlySelectedShape && editor.isShapeOfType(onlySelectedShape, 'group') ? 'ungroup' : 'group'
+			return isActionRunnable(editor, finalActions.current?.[action]) ? action : null
 		}
 
 		function getFrameToggleAction(editor: Editor): 'frame-selection' | 'remove-frame' | null {
-			if (areAllSelectedFrameLike(editor)) return 'remove-frame'
-			return canFrameSelection(editor) ? 'frame-selection' : null
+			const action = areAllSelectedFrameLike(editor) ? 'remove-frame' : 'frame-selection'
+			return isActionRunnable(editor, finalActions.current?.[action]) ? action : null
 		}
 
 		function ungroupSelectedShapes(source: TLUiEventSource) {
@@ -712,8 +713,7 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				icon: 'group',
 				onSelect(source) {
 					const action = getGroupToggleAction(editor)
-					if (action === 'group') groupSelectedShapes(source)
-					if (action === 'ungroup') ungroupSelectedShapes(source)
+					if (action) finalActions.current?.[action].onSelect(source)
 				},
 			},
 			{
@@ -736,8 +736,7 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 				kbd: 'cmd+alt+g,ctrl+alt+g',
 				onSelect(source) {
 					const action = getFrameToggleAction(editor)
-					if (action === 'frame-selection') frameSelectedShapes(source)
-					if (action === 'remove-frame') removeSelectedFrames(source)
+					if (action) finalActions.current?.[action].onSelect(source)
 				},
 			},
 			{
@@ -1900,7 +1899,9 @@ export function ActionsProvider({ overrides, children }: ActionsProviderProps) {
 		}
 
 		const actions = makeActions(actionItems)
-		return gateActions(editor, overrides ? overrides(editor, actions, helpers) : actions)
+		const overriddenActions = overrides ? overrides(editor, actions, helpers) : actions
+		finalActions.current = gateActions(editor, overriddenActions)
+		return finalActions.current
 	}, [
 		helpers,
 		_editor,

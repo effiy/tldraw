@@ -13,6 +13,7 @@ import {
 	parseKbd,
 } from '../../lib/ui/hooks/useKeyboardShortcuts'
 import { useTools } from '../../lib/ui/hooks/useTools'
+import { TLUiOverrides } from '../../lib/ui/overrides'
 import {
 	renderTldrawComponent,
 	renderTldrawComponentWithEditor,
@@ -233,9 +234,9 @@ describe('keyboard shortcuts dialog overridden with null', () => {
 	})
 })
 
-async function setupFocusedEditor() {
+async function setupFocusedEditor(overrides?: TLUiOverrides) {
 	const { editor } = await renderTldrawComponentWithEditor(
-		(onMount) => <Tldraw onMount={onMount} />,
+		(onMount) => <Tldraw onMount={onMount} overrides={overrides} />,
 		{ waitForPatterns: false }
 	)
 
@@ -776,6 +777,28 @@ describe('frame selection shortcut', () => {
 		expect(editor.getShape(childId)?.parentId).toBe(editor.getCurrentPageId())
 	})
 
+	it('uses the overridden frame selection action', async () => {
+		const onSelect = vi.fn()
+		const { editor } = await setupFocusedEditor({
+			actions(_editor, actions) {
+				actions['frame-selection'] = { ...actions['frame-selection'], onSelect }
+				return actions
+			},
+		})
+		const shapeId = createShapeId()
+		act(() => {
+			editor.createShape({ id: shapeId, type: 'geo' })
+			editor.select(shapeId)
+		})
+
+		keydown(editor, { key: 'g', code: 'KeyG', altKey: true, metaKey: true })
+
+		expect(onSelect).toHaveBeenCalledWith('kbd')
+		expect(editor.getCurrentPageShapes().some((shape) => editor.isShapeFrameLike(shape))).toBe(
+			false
+		)
+	})
+
 	it.each([
 		['cmd+alt+shift+g (macOS)', { metaKey: true }],
 		['ctrl+alt+shift+g (Windows / Linux)', { ctrlKey: true }],
@@ -873,6 +896,53 @@ describe('group shortcut', () => {
 		expect(editor.getShape(groupId)).toBeDefined()
 		expect(editor.getShape(a)?.parentId).toBe(groupId)
 		expect(editor.getShape(arrow)?.parentId).toBe(editor.getCurrentPageId())
+	})
+
+	it('uses the overridden group action', async () => {
+		const onSelect = vi.fn()
+		const { editor } = await setupFocusedEditor({
+			actions(_editor, actions) {
+				actions['group'] = { ...actions['group'], onSelect }
+				return actions
+			},
+		})
+		const a = createShapeId()
+		const b = createShapeId()
+		act(() => {
+			editor.createShapes([
+				{ id: a, type: 'geo', x: 0, y: 0 },
+				{ id: b, type: 'geo', x: 200, y: 0 },
+			])
+			editor.select(a, b)
+		})
+
+		keydown(editor, { key: 'g', code: 'KeyG', metaKey: true })
+
+		expect(onSelect).toHaveBeenCalledWith('kbd')
+		expect(editor.getShape(a)?.parentId).toBe(editor.getCurrentPageId())
+	})
+
+	it('does nothing when the group action was deleted', async () => {
+		const { editor } = await setupFocusedEditor({
+			actions(_editor, actions) {
+				delete actions['group']
+				return actions
+			},
+		})
+		const a = createShapeId()
+		const b = createShapeId()
+		act(() => {
+			editor.createShapes([
+				{ id: a, type: 'geo', x: 0, y: 0 },
+				{ id: b, type: 'geo', x: 200, y: 0 },
+			])
+			editor.select(a, b)
+		})
+
+		keydown(editor, { key: 'g', code: 'KeyG', metaKey: true })
+
+		expect(editor.getShape(a)?.parentId).toBe(editor.getCurrentPageId())
+		expect(editor.getShape(b)?.parentId).toBe(editor.getCurrentPageId())
 	})
 })
 
